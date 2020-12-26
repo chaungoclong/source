@@ -1,0 +1,5 @@
+#fetch_array(): tìm nạp 1 hàng trong kết quả trả về (hàng này là 1 mảng 1 chiều), mà chỉ số của các phần tử trong mảng có thể là số, kí tự, hoặc cả 2;
+
+#fetch_assoc(): tìm nạp một hàng trong kết quả trả về(hàng này là 1 mảng 1 chiều), mà chỉ số của mảng này chỉ là ký tự
+
+#fetch_all(): tìm nạp tất cả các hàng trong kết quả trả về(mỗi hàng là 1 mảng 1 chiều => tất cả các hàng là mảng 2 chiều), mà chỉ số của mỗi mảng có thể là ký tự, số , hoặc cả 2.

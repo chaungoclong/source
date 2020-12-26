@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		.form td{
+			border: 2px solid white;
+		}
+		.form td{
+			padding: 5px;
+		}
+
+		#bgimg{
+			background-image: url("../image/nen1.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		.banner{
+			margin-bottom: -7.5px;
+		}
+	</style>
+</head>
+<body>
+	<table width="70%" cellpadding="0px" cellspacing="0px" align="center">
+		<tr>
+			<td width="100%">
+				<table  class="banner" width="100%" cellpadding="0px" cellspacing="0px"  align="center">
+					<td><img src="../image/anh.gif" alt="" width="100%" height="100%"></td>
+					<td><img src="../image/anh1.gif" alt="" width="100%" height="100%"></td>
+					<td><img src="../image/anh2.gif" alt="" width="100%" height="100%"></td>
+					<td><img src="../image/anh3.gif" alt="" width="100%" height="100%"></td>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="banner" width="100%" cellpadding="0px" cellspacing="0px" >
+					<td>
+						<img src="../image/3a.gif" alt="" width="100%" height="100%">
+					</td>
+					<td>
+						<img src="../image/4a.gif" alt="" width="100%" height="100%">
+					</td>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table width="100%" cellpadding="0px" cellspacing="0px" >	
+					<tr>
+						<td width="200x">
+							<img  class="banner" src="../image/mau_26.gif" alt="" height="100%" width="100%">
+						</td>
+						<td>
+							<img  class="banner" src="../image/vienngang.gif" alt="" height="100%" width="100%">
+						</td>
+					</tr>
+					<tr>
+						<td width="200px" align="center">
+							<table width="100%" cellpadding="0px" cellspacing="0px">
+								<tr height="280px" bgcolor="#97030">
+									<td valign="top">
+										<img src="../image/nut/coihoi.gif" alt="" width="200px">
+										<br>
+										<img src="../image/nut/coihoi.gif" alt="" width="200px">
+										<br>
+										<img src="../image/nut/coihoi.gif" alt="" width="200px">
+										<br>	
+										<img src="../image/nut/coihoi.gif" alt="" width="200px">
+										<br>
+										<img src="../image/nut/coihoi.gif" alt="" width="200px">
+									</td>
+								</tr>
+
+								<tr bgcolor="grey">
+									<td align="center" valign="bottom">
+										<hr>
+										<img src="../image/JVC-video.gif" alt="" width="180px">
+										<hr>		
+										<img src="../image/JVC-tokyo.gif" alt=""  width="180px">
+										<hr>	
+										<img src="../image/JVC-mobil.gif" alt=""  width="180px">
+										<hr>	
+										<img src="../image/SH-series.gif" alt=""  width="180">
+										<hr>
+										<br><br><br>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td valign="top"  style="border-right-style: dotted; border-right-color: red;">
+							<table width="100%" cellpadding="0px" cellspacing="0px">
+								<tr>
+									<td valign="top" height="40px" colspan="2">
+										<img src="../image/nut/GIOITHIEU.gif" alt="">
+									</td>
+								</tr>
+								<tr height="800px">
+									<td width="5px"></td>
+									<td align="center" valign="top" id="bgimg" width="">
+										<form action="">	
+											<table  class="form" bgcolor="#DAB0B0" width="80%" cellpadding="0px" cellspacing="0px" border="1px" height="100%">
+												<tr>
+													<td align="right">Họ và tên:</td>
+													<td><input type="text" name="name" size="30" /></td>
+													<td width="20px" rowspan="11"></td>
+												</tr>
+												<tr>
+													<td align="right">Địa chỉ liên lạc:</td>
+													<td><input type="text" name="address" size="30" /></td>
+												</tr>
+												<tr>
+													<td align="right">Số ĐIện Thoại:</td>
+													<td><input type="text" name="phone" size="30" /></td>
+												</tr>
+												<tr>
+													<td align="right">Giới tính:</td>
+													<td>
+														<input type="radio" name="gender" value="nam" /> Nam
+														<input type="radio" name="gender" value="nu" /> Nu
+													</td>
+												</tr>
+												<tr>
+													<td align="right">Email:</td>
+													<td><input type="text" name="email" size="30" /></td>
+												</tr>
+												<tr>
+													<td align="right">Tuổi:</td>
+													<td><input type="number" name="age" size="30" /></td>
+												</tr>
+												<tr>
+													<td align="right">Sản Phẩm:</td>
+													<td>
+														<input type="checkbox" name="sanpham[]"/> TV Plasma <br>	
+														<input type="checkbox" name="sanpham[]"/> DVD Playback <br>	
+														<input type="checkbox" name="sanpham[]"/> Karaoke <br>	
+														<input type="checkbox" name="sanpham[]"/> May giat <br>
+														<input type="checkbox" name="sanpham[]"/> May lanh <br>
+														<input type="checkbox" name="sanpham[]"/> TV sieu phang <br>
+														<input type="checkbox" name="sanpham[]"/> May nghe nhac MP3
+														<br>
+														<input type="checkbox" name="sanpham[]"/> Ampli va Micro
+													</td>
+												</tr>
+												<tr>
+													<td align="right">Đại lí phân phối:</td>
+													<td>
+														<select name="vitri">
+															<option value="quangninh">Quang Ninh</option>
+															<option value="hanoi">Ha Noi</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">Gửi hình</td>
+													<td>
+														<input type="file" name="image"/>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">Yêu cầu</td>
+													<td>
+														<textarea name="yeucau" rows="10" cols="50"></textarea>
+													</td>
+												</tr>
+												<tr>
+													<td></td>
+													<td align="center">
+														<input type="submit" value="Đồng ý">
+														<input type="reset" value="Không đồng ý">
+													</td>
+												</tr>
+											</table>
+										</form>	
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>	
+		</tr>
+	</table>
+</body>
+</html>

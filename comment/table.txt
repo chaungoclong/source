@@ -1,0 +1,6 @@
+cellspacing = border-spacing: khoang cach giua cac duong vien;
+cellpadding : khoang cach giua noi dung va duong vien cua cell;
+valign: top, bottom, midle;
+colspan: gop nhieu cot thanh 1 cot;
+rowspan: gop nhieu hang thang 1 hang;
+caption: tieu de cua bang;

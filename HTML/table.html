@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>table</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../CSS/table.css">
+</head>
+<body>
+	<table class="bang">
+		<h2>hello</h2>
+		<caption id="abc">this is table</caption>
+		<tr>
+			<th rowspan="2">STT</th>
+			<th rowspan="2">Họ tên</th>
+			<th colspan="2">Giới tính</th>
+			<th rowspan="2">Chức vụ</th>
+		</tr>
+		<tr>
+			<td>Nam</td>
+			<td>Nữ</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>Trần Đức Anh</td>
+			<td>X</td>
+			<td></td>
+			<td>Lớp trưởng</td>
+		</tr>
+	</table>
+	<h1 id="demo"></h1>
+	<button onclick="fc()">try it</button>
+	<script>
+		function fc(){
+			var x = document.getElementsByTagName("TD");
+			//document.getElementById("demo").innerHTML = x.length;//dem so phan tag = td
+			for(var i = 0; i < x.length; ++i){
+				x[i].style.color = "red";
+			}
+		}
+	</script>
+</body>
+</html>

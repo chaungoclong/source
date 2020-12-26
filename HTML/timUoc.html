@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script>
+		var NUMBER = 200000000;
+		var count = 0;
+		var estimate = 1;
+		number = NUMBER;
+		for(var i = 2; i <= number; ++i){
+			while(number % i == 0){
+				count++;
+				number /= i;
+			}
+			estimate *= (count + 1);
+			count = 0;
+		}
+
+		document.write("số ước của "+NUMBER+" là: "+estimate);
+	</script>
+</body>
+</html>

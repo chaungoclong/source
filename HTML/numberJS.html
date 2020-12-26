@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>NUMBER JAVASCRIPT</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h1 id="number"></h1>
+	<script language="javascript">
+		//1.toString(): chuyển số về chuỗi
+		var a = 123;
+		var b = a.toString();
+		console.log(b.length);
+		//2.toExponential(), toFixed(), toPrecision(): trả về 1 chuỗi làm tròn
+		var c = 123.4567;
+		console.log(c.toExponential(0));
+		console.log(c.toFixed(0));
+		console.log(c.toPrecision());//toPrecision() đối số 1-100
+		console.log(c.toExponential(3));
+		console.log(c.toFixed(3));
+		console.log(c.toPrecision(3));
+		//3.valueOf(): trả về 1 số
+		document.getElementById('number').innerHTML = a.valueOf();
+		//4.Number(), parseInt(), parseFloat(): chuyển đổi biến sang số
+		var d = "123abc";
+		console.log(Number(d) + 2);
+		console.log(d + 2);
+		console.log(parseInt(d) + 2);
+		console.log(d + 2);
+		console.log(parseFloat(d) + 2);
+		console.log(d + 2);
+		console.log(Number(d) + 2);
+		console.log(d + 2);
+		console.log(c.constructor);//trả về function Number(){[native code]}
+		//Number.isFinite(value): kiểm tra 1 giá trị có phải là 1 số hứu hạn
+		console.log(Number.isFinite('okok'));
+		//Number.isInterger(value): kiểm tra 1 giá trị có phải là số nguyên
+		console.log(Number.isInteger(c));
+		//Number.isNaN(value): kiểm tra 1 giá trị có NaN không. != isNaN(), Number.isNaN không chuyển đổi gt -> number trước khi kiểm tra
+		var e = Number.isNaN("abc");
+		console.log(e);
+		
+		
+		console.log(typeof(d));
+
+	</script>
+</body>
+</html>

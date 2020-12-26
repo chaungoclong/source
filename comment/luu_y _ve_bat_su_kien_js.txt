@@ -1,0 +1,10 @@
+//lấy dữ liệu từ 1 thẻ input:
++chương trình chạy từ trên xuống dưới do đó nếu trong thẻ input có dữ liệu rỗng->dữ liệu in ra không có gì else sẽ in ra dữ liệu=> để in ra dữ liệu của 1 thẻ khi nhập giá trị vào thẻ đố phải bắt sự kiện vì lúc đầu giá trị rỗng nếu in dữ liệu ra ngay sẽ không có gì.
+//lắng nghe sự kiện trên 1 thẻ:
+#sự khác biệt giữa "element.event = function(){//code}" và "element.event = abc()" theo nhứng lỗi đã gặp;
++"element.event = function(){//code}" sẽ bắt sự kiện khi nào có sự kiện xảy ra vì ở đây nó mới được định nghĩa
+khi nào có sự kiện cần bắt xảy ra thì hàm mới được chạy ;
++"element.event = abc()" thực thi code ngay khi sự kiện chưa xảy ra vì () sẽ chạy hàm ngay khi chương trình chạy;
+#sự khác biệt giữa click() và onclick;
++click(): mô phỏng thao tác nhấp chuột trên element;
++onclick: thực hiện 1 việc gì đó khi element được nhấn vào;

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>form</title>
+	<style type="text/css"> 
+		table, th, td {  
+	    border: 1px solid red;
+	    border-collapse: collapse;
+	    width: 500px;
+	}
+</style>
+</head>
+<body>
+	<form action="" method="">
+		<table align="center">
+			<tr>
+				<th colspan="2" align="center">Đăng ký</th>
+			</tr>
+
+			<tr>
+				<td>Fullname:</td>
+				<td><input  size="70" type="text" name="fullname" value="" align="center" placeholder="nhập tên vào"></td>
+			</tr>
+
+			<tr>
+				<td>Username:</td>
+				<td><input  size="70" type="text" name="username" value="" align="center" placeholder="nhập tên đăng nhập vào"></td>
+			</tr> 
+
+			<tr>
+				<td>Password:</td>
+				<td><input  size="70" type="password" name="pass" value="" align="center" placeholder="nhập mật khẩu vào"></td>
+			</tr>  
+				<td>Password:</td>
+				<td><input  size="70" type="password" name="repass" value="" align="center" placeholder="nhập lại mật khẩu"></td>
+			<tr>
+				<td>Giới tính:</td>
+				<td>
+					<input type="radio" name="gender" id="nam">Nam &nbsp
+					<input type="radio" name="gender" id="nam">Nữ
+				</td>
+			</tr> 
+				<td>Ngày sinh</td>
+				<td>
+					<select name="ngaysinh" size="1">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">10</option>
+						<option value="12">12</option>
+					</select>
+
+					<select name="thangsinh" size="1">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">10</option>
+						<option value="12">12</option>
+					</select>
+
+					<select name="namsinh" size="1">
+						<option value="2000">2000</option>
+						<option value="2001">2001</option>
+						<option value="2002">2002</option>
+						<option value="2003">2003</option>
+						<option value="2004">2004</option>
+						<option value="2005">2005</option>
+						<option value="2006">2006</option>
+						<option value="2007">2007</option>
+						<option value="2008">2008</option>
+						<option value="2009">2009</option>
+						<option value="2010">2010</option>				
+						<option value="2011">2011</option>
+					</select>
+				</td>
+			<tr>
+				<td>Địa chỉ: </td>
+				<td align="center"><textarea cols="50" rows="10" name="diachi" placeholder="nhập địa chỉ của bạn"></textarea></td>
+			</tr>
+
+			<tr>
+				<td>Chọn file: </td>
+				<td><input type="file" name="file" value="file"></td>
+			</tr>
+
+			<tr>
+				<td>Sở thích: </td>
+				<td>
+					<input type="checkbox" name="sothich" value="dabong" id="sothich1">Đá bóng
+					<input type="checkbox" name="sothich" value="dacau" id="sothich2">Đá cầu
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2">
+					<input type="submit" name="gui" value="OK">
+					<input type="reset" name="reset" value="RESET">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

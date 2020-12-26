@@ -1,0 +1,89 @@
+.tong{
+	width: 	80%;
+	height: 700px;
+	margin:0 auto;
+}
+
+.trai{
+	height: 100%;
+	width: 25%;
+	background-color: black;
+	background-image: url('../image/soc.jpg');
+	background-repeat: repeat-y;
+	background-position: right;
+	float: left;
+}
+
+.phai{
+	width: 75%;
+	height: 100%;
+	background-image: url('../image/sua1.gif');
+	background-position: left 0px top 130px;
+	background-size: 82%;
+	background-repeat: no-repeat;
+	float:left;
+}
+
+.phai_trai{
+	width: 75%;
+	height:100%;
+	float: 	left;
+	position: relative;
+}
+
+.phai_trai p{
+	width: 80%;
+	margin:0px auto;
+	font-family: monospace;
+	font-size: 15px;
+}
+
+.phai_trai h1{
+	font-size: 40px;
+	margin-left: 10px;
+	color:#F88C60;
+	font-weight: 900;
+}
+.phai_trai table{
+	height: 100%;
+	width: 100%;
+}
+ .phai_trai form{
+ 	margin:0 auto;
+ 	height: 75%;
+ 	width: 80%;
+ 	background-color:#A5F8A8;
+ 	position: absolute;
+ 	bottom: 0;
+ 	right:20px;
+ 	left:20px;
+ }
+
+ .phai_phai{
+ 	padding-top: 26.8px;
+ 	width: 25%;
+ 	height: 100%;
+ 	float: left;
+ }
+
+ .phai_trai-form-table-left{
+ 	width: 	20%;
+ 	text-align: right;
+ 	padding-right: 3px;
+ }
+
+ #name, #phone, #email{
+ 	width: 	200px;
+ } 
+
+ #ngay, #thang{
+ 	width: 	30px;
+ }
+
+  #address{
+  	width: 	250px;
+  }
+
+ #nam{
+ 	width: 	50px;
+ }

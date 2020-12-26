@@ -1,0 +1,43 @@
+#notice{
+	padding: 50px 50px 0px 50px;
+	 margin: 0 auto;
+	 width: 80%;
+	 height: 500px;
+	 background-image: url('image/hinh-anh-background-tuong-gach-co-xanh_034916832.jpg');
+	 background-repeat: no-repeat;
+	 background-size: cover;
+	 text-align: center;
+}
+
+#notice p{
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 50px;
+	color: red;
+}
+
+#notice div{
+	width: 150px;
+	margin: 0 auto;
+	position: relative;
+	bottom: -10px;
+}
+
+#notice a{
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 30px;
+	color: yellow;
+}
+
+#notice a:hover{
+	color: #FB320A;
+}
+
+#notice p:hover{
+	color: green;
+}
+
+.date{
+	font-size: 300px;
+}

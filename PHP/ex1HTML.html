@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="../CSS/clock.css">
+</head>
+<body>
+	<script language="javascript">
+		var h=m=0;
+		var fun;
+		function st() {
+			m=document.getElementById('m');
+			h=document.getElementById('h');
+			m.value++;
+			if(m.value==60){
+				h.value++;
+				m.value=0;
+			}
+			fun=setTimeout(st, 100);
+		}
+
+		function stop(){
+			clearTimeout(fun);
+		}
+
+		function restart(){
+			stop();
+			m.value=h.value=0;
+
+		}
+
+	</script>
+
+	<form name="clock">
+		<input class="color" type="text" name="h" id="h" value="0" size="3">
+		<input class="color" type="text" name="m" id="m" value="0" size="3">
+		<br><br>
+		<input type="button" id="start" name="start" value="START" onclick="st();">
+		<input type="button" id="stp" name="stp" value="STOP" onclick="stop();">
+		<input type="button" id="res" name="res" value="RESTART" onclick="restart();">
+	</form>
+</body>
+</html>

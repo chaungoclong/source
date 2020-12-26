@@ -1,0 +1,55 @@
+PUSHER
+////////////////////////////////////////////
+#NOTICE:
+ +Phải cài đặt composer.
+ +File nhận thông báo như mọi file khác.
+ +File tạo thông báo phải require file autoload.php trong thư mục vendor để có thể load được file pusher.php trong thư mục pusher trong vendor -> sử dụng class Pusher.
+
+
+
+ //////////////////////////////////////////
+#Gồm 2 file thành phần cơ bản:
+ 1.Nơi tạo thông báo.
+ 2.Nơi nhận thông báo.
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+I-Nơi tạo thông báo
+-Yêu cầu file autoload.php để có thể sử dụng class pusher
+-Tạo một đối tượng Pusher gồm các thuộc tính:
+    +app_key.
+    +app_secret.
+    +app_id.
+    +lựa chọn['cluster'=>'mã cụm lấy trên web của pusher', 'useTLS'=>true, ...];
+-Tạo mảng chứa thông báo gửi đi:
+    $msg['msg'] = "nội dung thông báo";
+-Gửi thông báo trên kênh:
+    /**
+     * một kênh
+     */
+    $pusher->trigger('tên kênh(tự đặt)', 'tên sự kiện(tự đặt', mảng chứa nội dung thông báo);
+
+    /**
+     * nhiều kênh
+     */
+ -tên kênh và tên sự kiện ở file tạo thông báo phải khớp với tên kênh và tên sự kiện ở file nhận thông báo
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+II-Nơi nhận thông báo
+-Thêm thư viện kênh khách:
+   <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+-Hiển thị lỗi ở màn hình console:
+    Pusher.logToConsole = true;
+
+-Mở kết nối với kênh thông qua app_key nhận trên web (tương ứng với file gửi thông báo) và lựa chọn{cluster: '', ...}:
+    var pusher = new Pusher('app_key', {"cluster":'value'});
+
+-Đăng kí kênh để nhận thông báo (thông báo sẽ được gửi trên kênh mà nơi tạo thông báo đã tạo -> đăng kí kênh đó để nhận thông báo):
+    var channel = pusher.subscribe('tên kênh tương ứng với tên kênh bên file gửi thông báo');
+
+-Lắng nghe sự kiện trên kênh và thực hiện điều gì đó khi xảy ra sự kiện đó:
+    channel.bind('tên sự kiện', callback);
+    +callback: có đối số data trả về nội dung thông báo
+        function(data){
+            #code
+        }
+

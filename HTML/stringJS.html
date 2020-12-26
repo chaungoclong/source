@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>STRING JAVASCRIPT</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script language="javascript">
+		//các cách khởi tạo chuỗi
+		var a = 'Châu Ngọc Long';
+		console.log(a +' '+typeof(a));
+		var b = new String('Châu Ngọc Long');
+		console.log(b+' '+typeof(b));
+
+		//các phương thức làm việc với chuỗi
+		//1.length: lấy độ dài chuỗi
+		console.log('độ dài của chuỗi a: '+a.length+'\nđộ dài của chuỗi b: '+b.length);
+		//2.indexOf(): lấy chỉ số(vị trí xuất hiện) của của 1 chuỗi trong 1 chuỗi.
+		var index = a.indexOf('Long');
+		console.log('vị trí xuât hiện của "Long" là: '+index);
+		index = a.indexOf("hello");
+		if(index >= 0)
+			console.log('vị trí xuất hiện của chuỗi"hello" là: '+index);
+		else
+			console.log('không có');
+		//3.lastIndexOf(): lấy vị trí xuất hiện lần cuối của chuỗi 1 trong 1 chuỗi
+		var c = 'đây là một cái cây, cái cây rất cao';
+		index = c.lastIndexOf('cây');
+		console.log('lần xuất hiện cuối cùng của "cây" là:'+index);
+		//4.search(): lấy vị trí của một chuỗi trong 1 chuỗi
+		index = a.search('Châu');
+		console.log('vị trí của "Châu" là:'+index);
+		//các phương thức trích xuất chuỗi
+		//1.slice(start, end): lấy ra chuỗi từ vị trí (start -> end-1 || start+1 -> end)(chỉ số đánh 2 đầu chuỗi, đánh số từ 0 <=> c/c++)
+		var cut = a.slice(0, 4);
+		console.log(cut);
+		cut = a.slice(-9, -5);
+		console.log(cut);
+		//nếu chỉ có 1 chỉ số thì sẽ cắt từ vị trí đó cho đến hết chuỗi
+		cut = a.slice(0);
+		console.log(cut);
+		//2.substring(start, end): giống slice nhưng không nhận chỉ số âm
+		cut = a.substring(0, 4);
+		console.log(cut);
+		//3.substr(start, length(length of the extracted part): lấy ra chuỗi từ vị trí start có chiều = length
+		cut = a.substr(0, 4);
+		console.log(cut);
+		//4.replace(chuỗi cần thay thế chuỗi, chuỗi thay thế cho chuỗi cần thay thế), PT này trả về chuỗi mới không thay đổi chuỗi gốc
+		var d = 'Kim Tự Tháp Ai Cập';
+		var x = d.replace("Ai Cập", "Việt Nam");
+		console.log(x);
+		//5.chuyển đổi chữ hoa thường: toLowerCase(), toUpperCase() không thay đổi chuỗi gốc
+		console.log(a.toUpperCase());
+		console.log(a.toLowerCase());
+		//6.hàm nối 2 chuỗi <=> + không thay đổi chuỗi gốc
+		var e = "hello".concat("ok");
+		console.log(e);
+		e = a.concat("Phạm Thị Huyền Thương");
+		console.log(e);
+		//7.trim(): loại bỏ khoảng trắng ở 2 đầu của chuỗi
+		var g = "              ok                ";
+		var f = g.trim();
+		console.log(f);
+		//8.lấy ra kí tự/mã ascii của kí tự ở vị trí thứ i: charAt(), charCodeAt(), str[i]
+		console.log(a.charAt(10));
+		console.log(a.charCodeAt(10));
+		console.log(a[10]);
+		//các phương thức này đều không làm thay đổi chuỗi gốc
+		var arr = a.split(" ");
+		console.log(arr);
+	</script>
+</body>
+</html>

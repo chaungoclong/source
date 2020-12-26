@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		table{
+			text-align: center;
+			background: green;
+			color:white;
+			border-radius: 5px;
+		}
+		#x{
+			width: 50px;
+			border-radius: 5px;
+		}
+		#y{
+			width: 50px;
+			border-radius: 5px;
+		}
+		#kq{
+			width: 122px;
+			border-radius: 5px;
+		}
+		#btn{
+			width: 50px;
+			border-radius: 5px;
+			background:yellow;
+		}
+	</style>
+</head>
+<body>
+	<table align="center">
+		<th>PTB1</th>
+		<tr>
+			<td>
+				<label>a:</label><input type="text" id="x">
+				<label>b:</label><input type="text" id="y">
+			</td>
+		</tr>
+		<tr colspan="2">
+			<td><label>x:</label><input type="text" id="kq"></td>
+		</tr>
+		<tr>
+			<td>
+			 	<button id="btn" onclick="abc()">ok</button>
+			</td>
+		</tr>
+	</table>
+	
+	<script>
+		//ax + b = 0
+		function abc(){
+			var x = parseFloat(document.getElementById("x").value);
+			var y = parseFloat(document.getElementById("y").value);
+			var kq;
+			if(!x){
+				if(y) kq = "Vô nghiệm";
+				else kq = "Vô số nghiệm";
+			}
+			else kq = -y / x;
+			document.getElementById("kq").value = kq;
+		}
+
+		document.addEventListener("keydown", function(event){
+			if(event.which === 13){
+				btn.click();
+			}
+		});
+	</script>
+</body>
+</html>

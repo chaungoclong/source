@@ -1,0 +1,136 @@
+*{
+	box-sizing: border-box;
+	font-family: monospace;
+	font-weight: 900;
+	font-size: 25px;
+}
+body{
+	padding-top: 50px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: black;
+}
+	
+.calcs{
+	width: 320px;
+	height: 500px;
+	background-color: grey;
+	padding: 20px 5px 5px 5px;
+	border-radius: 15px;
+}
+
+.button_left{
+	
+}
+
+.button_right{
+	
+}
+
+.row{
+	width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+}
+
+#result{
+	width: 300px;
+	height: 200px;
+	text-align: right;
+	border-radius: 5px;
+}
+
+input[type=button]{
+	width: 23%;
+	height: 50px;
+	border-radius: 10px;
+	border: 1px solid blue;
+	margin: 2px;
+}
+
+input[type=button]:hover{
+	background-color: #1CF3D7;
+}
+
+input[type=button]:active{
+	background-color: #0CFF0C;
+}
+
+#del, #del_all{
+	width: 48%;
+	height: 50px;
+	background-color: #F85D11;
+}
+
+#del:hover, #del_all:hover{
+	background-color: #F5C440;
+}
+
+#del:active, #del_all:active{
+	background-color:#FD0505;
+
+}
+#rs{
+	background-color: blue;
+}
+
+#rs:hover{
+	background-color:#4897F8;
+}
+
+#rs:active{
+	background-color: #4E0AFC;
+}
+
+.clock-date{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	width: 650px;
+	height: 250px;
+	background-color: #001280;
+	border-radius: 10px;
+	font-family: Orbitron;
+}
+.clock{
+	width: 450px;
+	height: 200px;
+	background-color: #001280;
+	border-radius: 10px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 10px;
+	font-size: 80px;
+	color:red;
+}
+
+.clock input{
+	text-align: center;
+	font-weight: 900;
+	font-size: 80px;
+	color: #17D4FE;
+	background-color: black;
+	font-family Orbitron;
+	width: 120px;
+	height: 100px;
+	border-radius: 10px;
+}
+
+.date h1{
+	font-family: Orbitron;
+	font-size: 40px;
+	color:#17D4FE;
+	background-color: black;
+	margin-bottom: 0;
+	padding: 10px;
+	border-radius: 10px;
+	border-style: double;
+}
+
+.music a{
+	text-decoration: none;
+}

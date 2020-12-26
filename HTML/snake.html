@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		canvas{
+			position: relative;
+			background: "black";
+		}
+		body{
+			background: black;
+		}
+		h1{
+			left:46%;
+			top:10px;
+			position: absolute;
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="game_box" width="600" height="400" style="border:5px solid#fff"></canvas>
+	<canvas id="score" width="200" height="400" style="border:5px solid green"></canvas>
+	<h1 id="score_box">SCORE:0</h1>
+	
+	<script>
+		var objGame = document.getElementById('game_box');//Khung game
+		var objScore = document.getElementById("score");
+		var ctx = objGame.getContext("2d");//Chế độ vẽ 2d
+		var ctx2 = objScore.getContext("2d");
+		var diem = 0;
+		var dot_ran = 20;//độ dài của 1 đốt rắn
+		//CON RẮN
+		var Snake={
+			x: 0,
+			y: 0,
+			direct: "DOWN",
+			do_dai: [],
+			do_dai_max: 4,
+			dieuHuong: function(){
+				if(this.direct == "RIGHT"){
+					this.x += dot_ran;
+				}
+				if(this.direct =="LEFT"){
+					this.x -= dot_ran;
+				}		
+				if(this.direct == "UP"){
+					this.y -= dot_ran;
+				}
+				if(this.direct =="DOWN"){
+					this.y += dot_ran;
+				}
+			},
+			xacDinhHuong: function(){
+				document.addEventListener("keydown", function(event){
+					if(event.which === 37 && Snake.direct !=="RIGHT"){
+						Snake.direct = "LEFT";
+						//không được dùng THIS để gọi thuộc tính direct tại đây vì THIS ở đây chính là đối tượng document vì document gọi đến hàm này khi xảy ra sự kiện nhấn phím xuống
+					}
+					if(event.which === 38 && Snake.direct !=="DOWN"){
+						Snake.direct = "UP";
+					}
+					if(event.which === 39 && Snake.direct !=="LEFT"){
+						Snake.direct = "RIGHT";
+					}
+					if(event.which === 40 && Snake.direct !=="UP"){
+						Snake.direct = "DOWN";
+					}
+				});
+			}, 
+			chamBien: function(){
+				if(this.x < 0) { 
+					this.x = objGame.width - dot_ran; 
+				}
+				if(this.x >= objGame.width) { 
+					this.x = 0; 
+				}
+				if(this.y < 0) { 
+					this.y = objGame.height - dot_ran; 
+				}
+				if(this.y >= objGame.height) { 
+					this.y = 0; 
+				}
+			},
+			veThan: function(){
+				ctx.clearRect(0, 0, objGame.width, objGame.height);
+				ctx.fillStyle = "red";
+				for(let dot of this.do_dai){
+					ctx.fillRect(dot.x, dot.y, dot_ran-1, dot_ran-1);
+				}	
+			},
+			themDot: function(){
+				this.do_dai.unshift({x:this.x, y:this.y});
+				if(this.do_dai.length > this.do_dai_max){
+					this.do_dai.pop();
+				}
+			},
+			anThucAn: function(){
+				if(this.x == Food.x && this.y == Food.y){
+					this.do_dai_max++;
+					diem+=100;
+					Food.random();
+					document.getElementById('score_box').innerHTML = "SCORE:"+diem;
+				}
+			},
+			canThan: function(){
+				for(let i = 1; i < this.do_dai.length; ++i){
+					if(this.do_dai[i].x == this.x && this.do_dai[i].y == this.y){
+						clearInterval(a);
+						diem = 0;
+						ctx.font="30px Comic Sans MS";
+						ctx.fillStyle = "blue";
+						ctx.fillText("GAME OVER", 250, objGame.height/2);
+					}
+				}
+			}
+		};
+		//THỨC ĂN
+		var Food={
+			x: 0,
+			y: 0,
+			random: function(){
+				this.x = (Math.floor(Math.random() * 29) + 1) * dot_ran;
+				this.y = (Math.floor(Math.random() * 19) + 1) * dot_ran;
+				if(this.x == Snake.x && this.y == Snake.y){
+					this.random();
+				}
+			},
+			hienThi: function(){
+				ctx.fillStyle="green";
+				ctx.fillRect(this.x, this.y, dot_ran-1, dot_ran-1);
+			}
+		};
+
+		Food.random();
+		//HAM LAP
+		function loop(){
+			Snake.dieuHuong();
+			Snake.chamBien();
+			Snake.themDot();
+			Snake.veThan();
+			Snake.canThan();
+			Food.hienThi();
+			Snake.anThucAn();
+			Snake.xacDinhHuong();
+		}
+
+		var a = setInterval(loop, 67);
+	</script>
+</body>
+</html>

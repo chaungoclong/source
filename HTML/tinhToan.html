@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body onload="calc();">
+	x:<input type="number" id="x"><br>
+	y:<input type="number" id="y"><br>
+	tong:<input type="text" id="tong"><br>
+	hieu:<input type="text" id="hieu"><br>
+	tich:<input type="text" id="tich"><br>
+	thuong:<input type="text" id="thuong"><br>
+	<script>
+		
+		function calc(){
+			var tong = document.getElementById('tong');
+			var hieu = document.getElementById('hieu');
+			var tich = document.getElementById('tich');
+			var thuong = document.getElementById('thuong');
+			var x = document.getElementById('x');
+			var y = document.getElementById('y');
+			x.onkeyup=function(){
+				tong.value=Number(this.value) + Number(y.value);
+				hieu.value=Number(this.value) - Number(y.value);
+				tich.value=Number(this.value) * Number(y.value);
+				thuong.value=(Number(y.value)) ? Number(this.value) / Number(y.value) : "khong chia duoc";
+				}
+			y.onkeyup=function(){
+				tong.value=Number(this.value) + Number(x.value);
+				hieu.value=Number(x.value) - Number(this.value);
+				tich.value=Number(this.value) * Number(x.value);
+				thuong.value= (Number(this.value)) ? Number(x.value) / Number(this.value) : "khong chia duoc";
+				console.log(Number(this.value));
+				}
+			}
+	</script>
+</body>
+</html>

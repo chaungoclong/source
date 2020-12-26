@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="../CSS/index.css">
+</head>
+<body>
+	<script src="../JS/listFunction.js"></script>
+		<div id="day_of_month" >	
+			<div id="top">
+				<h2>TÍNH SỐ NGÀY TRONG THÁNG</h2>
+			</div>
+			<div >	
+				<label>Month/Year:</label>
+				<input type="number" id="inputMonth"> /
+				<input type="number" id="inputYear">
+			</div>	
+			<div>
+				<button id="day_of_month-btn" onclick="dayOfMonth()">Tính số ngày</button>
+			</div>
+			<div>
+				<input type="text" id="outputDay" disabled>
+			</div>	
+		</div>	
+	<script>
+		document.getElementById('inputMonth').addEventListener('keydown', function(event){
+			if(event.code == 'Enter'){
+				document.getElementById("day_of_month-btn").click();
+			}
+		});
+	</script>
+</body>
+</html>

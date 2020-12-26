@@ -1,0 +1,138 @@
+*{
+	box-sizing: border-box;
+}
+.tong{
+	width: 80%;
+	height: 1000px;
+	margin: 0 auto;
+	background-color: red;
+}
+
+.head{
+	width: 100%;
+	height: 170px;
+	background-color: blue;
+}
+
+.head_top{
+	width: 100%;
+	height: 70px;
+	background-color: yellow;
+}
+
+.head_top-image{
+	width: 25%;
+	height: 100%;
+	float: left;
+}
+
+.head_top-image img{
+	width: 100%;
+	height: 100%;
+}
+
+.head_bottom{
+	width: 100%;
+	height: 100px;
+	background-color: green;
+}
+
+.head_bottom-image{
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+.head_bottom-image img{
+	width: 100%;
+	height: 100%;
+}
+
+.nav{
+	height: 20px;
+	width: 100%;
+}
+
+#nav_item_1{
+	width: 20%;
+	height: 100%;
+	float: left;
+}
+
+#nav_item_2{
+	width: 80%;
+	height: 100%;
+	float: left;
+}
+
+#nav_item_1 img, #nav_item_2 img{
+	width: 100%;
+	height: 100%;
+}
+
+.main{
+	width: 100%;
+	height: 830px;
+	background-color: green;
+}
+
+.main_left{
+	width: 20%;
+	height: 100%;
+	background-color: yellow;
+	float: left;
+}
+.main_left-top{
+	width: 100%;
+	height: 150px;
+	background-color: #970301;
+}
+
+.main_left-bottom{
+	text-align: center;
+	padding-top: 0.5px;
+	width: 100%;
+	height: 680px;
+	background-color: #C4C1C6;
+}
+
+.main_left-bottom img{
+	width: 90%;
+	margin:5px;
+}
+
+.main_right{
+	position: relative;
+	width: 80%;
+	height: 100%;
+	background-color: #FFFFFF;
+	float: left;
+}
+.main_right-content{
+	height: 95%;
+	width: 99%;
+	position: absolute;
+	bottom:0;
+	right:0;
+	background-image: url('../image/nen1.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.main_right-content form{
+	margin:0 auto;
+	width: 80%;
+	height: 100%;
+}
+
+.main_right-content form table{
+	width: 100%;
+	height: 100%;
+}
+
+.main_right-content form table td{
+	border: 1px solid black;
+}
+
+
+

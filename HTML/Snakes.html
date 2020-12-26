@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		.all{
+			position: relative;
+			width: 60%;
+			height: 420px;
+			background: purple;
+			margin: 0 auto;
+		}
+		.left{
+			position: relative;
+			width: 620px;
+			height: 100%;
+			float: left;
+			background: blue;
+		}
+		.right{
+			position: relative;
+			width: 10%;
+			height: 100%;
+			float: left;
+		}
+		#game_box{
+			position: absolute;
+			background: url(../image/background-dep-vector-628x400.jpg);
+			border:10px solid #D58912;
+		}
+		#score{
+			position: relative;
+			background: white;
+			border:5px solid#fff;
+		}
+		body{
+			background-color: black;
+		}
+		#score_box{
+			top:20px;
+			right:20px;
+			position: absolute;
+			color:red;
+			font-weight: bolder;
+		}
+		#start{
+			position: absolute;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="left">
+			<canvas id="game_box" width="600" height="400"></canvas>
+			<span id="score_box">SCORE:0</span>
+		</div>
+		<div class="right">
+			<button id="start">START</button>
+			<button id="retry">RETRY</button>
+		</div>
+	</div>
+	
+	
+	
+	<script>
+		var objGame = document.getElementById('game_box');//Khung game
+		var ctx = objGame.getContext("2d");//Chế độ vẽ 2d
+		var diem = 0;
+		var dot_ran = 20;//độ dài của 1 đốt rắn
+		var frame = null;
+		//CON RẮN
+		var Snake={
+			x: 0,
+			y: 0,
+			direct: "DOWN",
+			do_dai: [],
+			do_dai_max: 4,
+			dieuHuong: function(){
+				if(this.direct == "RIGHT"){
+					this.x += dot_ran;
+				}
+				if(this.direct =="LEFT"){
+					this.x -= dot_ran;
+				}		
+				if(this.direct == "UP"){
+					this.y -= dot_ran;
+				}
+				if(this.direct =="DOWN"){
+					this.y += dot_ran;
+				}
+			},
+			xacDinhHuong: function(){
+				document.addEventListener("keydown", function(event){
+					if(event.which === 37 && Snake.direct !=="RIGHT"){
+						Snake.direct = "LEFT";
+						//không được dùng THIS để gọi thuộc tính direct tại đây vì THIS ở đây chính là đối tượng document vì document gọi đến hàm này khi xảy ra sự kiện nhấn phím xuống
+					}
+					if(event.which === 38 && Snake.direct !=="DOWN"){
+						Snake.direct = "UP";
+					}
+					if(event.which === 39 && Snake.direct !=="LEFT"){
+						Snake.direct = "RIGHT";
+					}
+					if(event.which === 40 && Snake.direct !=="UP"){
+						Snake.direct = "DOWN";
+					}
+				});
+			}, 
+			chamBien: function(){
+				if(this.x < 0) { 
+					this.x = objGame.width - dot_ran; 
+				}
+				if(this.x >= objGame.width) { 
+					this.x = 0; 
+				}
+				if(this.y < 0) { 
+					this.y = objGame.height - dot_ran; 
+				}
+				if(this.y >= objGame.height) { 
+					this.y = 0; 
+				}
+			},
+			veThan: function(){
+				ctx.clearRect(0, 0, objGame.width, objGame.height);
+				for(let i in this.do_dai){
+					ctx.fillStyle = (i == 0) ? "red" : "#11F511";
+					ctx.fillRect(this.do_dai[i].x, this.do_dai[i].y, dot_ran-1, dot_ran-1);
+				}	
+			},
+			themDot: function(){
+				this.do_dai.unshift({x:this.x, y:this.y});
+				if(this.do_dai.length > this.do_dai_max){
+					this.do_dai.pop();
+				}
+			},
+			anThucAn: function(){
+				if(this.x == Food.x && this.y == Food.y){
+					this.do_dai_max++;
+					diem+=100;
+					Food.random();
+					document.getElementById('score_box').innerHTML = "SCORE:"+diem;
+				}
+			},
+			canThan: function(){
+				for(let i = 1; i < this.do_dai.length; ++i){
+					if(this.do_dai[i].x == this.x && this.do_dai[i].y == this.y){
+						cancelAnimationFrame(frame);
+						ctx.font="50px Comic Sans MS";
+						ctx.fillStyle = "blue";
+						ctx.fillText("GAME OVER", 200, objGame.height/2);
+					}
+				}
+			}
+		};
+		//THỨC ĂN
+		var Food={
+			color: "green",
+			x: 0,
+			y: 0,
+			random: function(){
+				this.x = (Math.floor(Math.random() * 29) + 1) * dot_ran;
+				this.y = (Math.floor(Math.random() * 19) + 1) * dot_ran;
+				this.color = "#"+(Math.floor(Math.random() * 999) + 1);
+				if(this.x == Snake.x && this.y == Snake.y){
+					this.random();
+				}
+			},
+			hienThi: function(){
+				ctx.fillStyle= this.color;
+				ctx.fillRect(this.x, this.y, dot_ran-1, dot_ran-1);
+			}
+		};
+
+		Food.random();
+		//HAM LAP
+		function loop(){
+			setTimeout(function(){
+				frame = requestAnimationFrame(loop);
+				Snake.dieuHuong();
+				Snake.chamBien();
+				Snake.themDot();
+				Snake.veThan();
+				Snake.canThan();
+				Food.hienThi();
+				console.log("x: "+Snake.x);
+				console.log("y: "+Snake.y);
+				Snake.anThucAn();
+				Snake.xacDinhHuong();
+			}, 1000/15);
+		}
+		loop();
+	</script>
+</body>
+</html>

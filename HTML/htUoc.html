@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script>
+		var arr = [];
+		var number = 2000000;
+		var i = 1;
+		//lưu các ước vào mảng
+		while(i <= Math.sqrt(number)){
+			if(number % i == 0){
+				arr.push(i);
+				if(i != (number / i)){
+					arr.push(number / i);
+				}
+			}
+			i++;
+		}
+		//sắp xếp lại mảng để hiển thị 
+		arr.sort(function(a, b) {
+			return a - b;
+		})
+		console.log(arr);
+	</script>
+</body>
+</html>

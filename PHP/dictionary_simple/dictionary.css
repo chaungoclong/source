@@ -1,0 +1,152 @@
+.header{
+	position: fixed;
+	height: 200px;
+	color: black;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-image: linear-gradient(#006C80, blue);
+}
+.nav{
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav_list{
+	padding: 5px 10px;
+}
+
+.nav_list_item{
+	list-style: none;
+	display: inline-block;
+	margin: 5px;
+	border: solid #6F0080;
+	background-color: #17DCE3;
+	border-radius: 10px;
+	padding: 2px;
+}
+.img{
+	height: 90px;
+	width: 150px;
+	margin: 10px auto;
+	border: 5px solid #28A482;
+	border-radius: 10px;
+	padding: 5px;
+	box-sizing: border-box;
+	position: absolute;
+	bottom:30px;
+	left:46px;
+}
+
+.img:hover{
+	border: 5px solid red;
+	background-color: green;
+}
+
+.logo{
+	height: 55px;
+	width: 300px;
+	margin: -50px auto;
+	border: 5px solid #28A482;
+	border-radius: 10px;
+	padding: 1px;
+	box-sizing: border-box;
+	background-color: white;
+}
+
+.tk{
+	width: 400px;
+	margin: 80px 489px 10px;
+}
+
+.form{
+	display: flex;
+}
+
+.form_search{
+	flex: 1;
+	height: 30px;
+	border: 1px solid #6309F7;
+	border-radius: 5px;
+}
+
+.form_select{
+	border: 1px solid #6309F7;
+	border-radius: 5px;
+	background-color: #1FD91B;
+}
+
+.form_select:hover{
+	background-color: #1BC5D9;
+	color: red;
+}
+
+.form_button{
+	border: 1px solid #6309F7;
+	border-radius: 5px;
+	background-color:#F0F906;
+}
+
+.form_button:hover{
+	background-color: #D91BA1;
+	color: black;
+}
+
+.main{
+	margin: 190px 0px 20px;
+	padding: 20px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.content{
+	margin: 0px 10px 0px;
+	padding: 20px;
+	border: 1px solid black;
+	flex:3;
+}
+
+.left_bar{
+	padding: 20px;
+	border: 1px solid black;
+	flex:1;
+}
+
+.right_bar{
+	padding: 20px;
+	border: 1px solid black;
+	flex:1;
+}
+
+.bar{
+	background-color: black;
+	color: white;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.bar_list{
+	margin:0;
+	padding: 0;
+}
+
+.bar_list_item{
+	list-style: none;
+	display: inline-block;
+	padding: 5px;
+	margin: 0;
+}
+.link{
+	text-decoration: none;
+}
+.bar_list_item:hover{
+	background-color: blue;
+	color:yellow;
+}
+
+.border_right{
+	background-color: green;
+	margin-right: -5px;
+}

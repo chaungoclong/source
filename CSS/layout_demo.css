@@ -1,0 +1,67 @@
+ul{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: auto;
+	width: 200px;
+	background-color:#9BD3D5;
+	position: fixed;
+	border:1px solid;
+	left:0;
+	top:0;
+}
+li{
+	border-bottom:1px solid;
+}
+
+li a, .button{
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+	color:black;
+	text-align: center;
+}
+
+li a:hover, .dropdown:hover .button{
+	background-color: green;
+	color: white;
+}
+
+.content{
+	display: none;
+	position:relative;
+}
+
+.dropdown:hover .content{
+	display: block;
+	background-color: #DDE97C;
+}
+
+.content a:hover{
+	background-color: #FB5E20;
+}
+
+.header{
+	position: fixed;
+	height: 100px;
+	right:0;
+	top:0;
+	left:200px;
+	border:1px solid;
+}
+
+.header::after{
+	content:"This Is My Website";
+	display:block;
+	text-align: center;
+	font-size: 50px;
+	margin-top: 20px;
+}
+
+.header img{
+	position: absolute;
+	left:5px;
+	height: 90%;
+}
+
+

@@ -1,0 +1,162 @@
+*{
+	box-sizing: border-box;
+}
+
+#all{
+	position: relative;
+	width: 95%;
+	height: 700px;
+	background: red;
+}
+
+#top{
+	position: relative;
+	width: 100%;
+	height: 25px;
+	background: #CA9CCA;
+}
+#imgT{
+	position: absolute;
+	right: 340px;
+	top: 10px;
+	z-index: 2;
+}
+
+#top a{
+	display:inline-block;
+	height: 100%;
+	text-align: center;
+	text-decoration: none;
+	padding: 2px 10px 0px 10px; 
+	border-left: 1px solid black;
+	color:black;
+}
+
+#top a:last-child{
+	border-right: 1px solid black;
+}
+
+#bottom{
+	background: #fff;
+	height: 100%;
+	width: 100%;
+}
+
+#bottom_left{
+	width: 93%;
+	position: relative;
+	height: 100%;
+	background: blue;
+	float:left;
+	background: url("../image/mau.gif") no-repeat top right;
+}
+#img1{
+	position: absolute;
+	top:0;
+	right:220px;
+	z-index: 1;
+}
+
+#row{
+	position: absolute;
+	top:50px;
+	right: 0;
+	left:0;
+	height: calc(100% - 50px);
+}
+
+#col1{
+	position: relative;
+	width: 37%;
+	height: 100%;
+	float: left;
+	background: #fff;
+}
+#select{
+	position: absolute;
+	top:0;
+	right: 0;
+	width: 78%;
+	height: 8%;
+	background: #CA9CCA;
+	text-align: center;
+}
+#select select{
+	width: 80%;
+	height: 60%;
+	text-align: center;
+}
+#p{
+	position: absolute;
+	top:8%;
+	right:2px;
+	height: 62%;
+	width:80%;
+	background: #fff;
+	overflow-y: scroll;
+	overflow-x: scroll;
+	padding: 0px 10px 0px;
+	margin-bottom: 20px; 
+}
+#image{
+	position: absolute;
+	right:0;
+	left:0;
+	bottom:0;
+	height: 30%;
+	background: #CA9CCA;
+	text-align: right;
+	padding: 5px 0px 10px;
+
+}
+#image img{
+	height: 100%; 
+}
+#col2{
+	width: 8%;
+	height: 100%;
+	float: left;
+	border-top:5px dotted black;
+	border-right:5px dotted black;
+}
+#col3{
+	margin-left: 5px; 
+	width: 10%;
+	height: 100%;
+	float: left;
+	border-top:5px dotted black;
+	background: url('../image/truyenthuyet.gif') no-repeat bottom left;
+}
+#col4{
+	width: 44%;
+	height: 100%;
+	float: left;
+	background: white;
+	background: url('../image/hoa.jpg') no-repeat left 50px bottom 20px ;
+}
+#bottom_right{
+	position: relative;
+	width: 7%;
+	height: 100%;
+	float:left;
+}
+
+#bottom_right_left{
+	float:left;
+	height:100%;
+	width: 40%;
+	background: #CCCC68;
+}
+#bottom_right_right{
+	float:left;
+	width: 60%;
+	height: 100%;
+	background: #9c9966 url('../image/lephai.jpg') repeat-y right;
+}
+
+#imgB{
+	position: absolute;
+	bottom:-50px;
+	right: -20px;
+	z-index: 1;
+}

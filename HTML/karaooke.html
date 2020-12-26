@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		table{ border: 1px solid black; background: #2463F1; border-radius: 10px;}
+		td{text-align: center; padding: 8px;}
+		th{color:yellow;}
+		label{color:white; display: inline-block; min-width: 100px;}
+		button{
+			position: relative;
+			left:50px;
+			border-radius: 10px;
+			background: green;
+			color:white;
+		}
+		input{border-radius: 5px; min-width: 200px;}
+	</style>
+</head>
+<body>
+	<table >
+		<th>MONNEY</th>
+		<tr>
+			<td><label>Giờ bắt đầu: </label><input type="number" id="start"></td>
+		</tr>
+		<tr>
+			<td><label>Giờ kết thúc: </label><input type="number" id="end"></td>
+		</tr>
+		<tr>
+			<td><label>Tổng tiền:</label> <input type="text" id="money"></td>
+		</tr>
+		<tr>
+			<td><button id="ok">Tính tiền</button></td>
+		</tr>
+	</table>
+	<script>
+		function kaoke(){
+			var hstart = parseInt(document.getElementById('start').value);
+			var hend = parseInt(document.getElementById('end').value);
+			var amount = document.getElementById('money');
+			if(hstart <10 || hend > 24) amount.value="Lỗi: giờ không hợp lệ";
+			else if(hstart > hend) amount.value="Lỗi:Giờ bắt đầu lớn hơn giờ kết thúc";
+			else if(hstart >= 10 && hend <= 17) amount.value = (hend - hstart) * 20000;
+			else if(hstart >= 17 && hend <= 24) amount.value = (hend - hstart) * 45000;
+			else amount.value = (17 - hstart) * 20000 + (hend - 17) * 45000;
+			}
+			document.getElementById('ok').addEventListener('click',function(){
+				 kaoke();
+			});
+			document.addEventListener('keydown',function(e){
+				 if(e.which === 13){
+				 	document.getElementById('ok').click();
+				 }
+			});
+	</script>
+</body>
+</html>

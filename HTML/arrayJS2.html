@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ARRAY JAVASCRIPT</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script language="javascript">
+		var xe = {type:"Fiat", model:"500", color:"white"};
+		var car = [
+			{type:"Fiat", model:"500", color:"white"},
+			{type:"BMW", model:"1000", color:"red"},
+			{type:"VinFast", model:"1500", color:"green"}
+		];
+		//for in/ for of
+		//duyet mang so
+		var array = [1, 2, 3, 4, 5];
+		for(var value in array){
+			console.log(array[value]+" "+typeof(array[value])+"\n");
+		}
+
+		for(var value of array){
+			console.log(value+" "+typeof(value)+"\n");
+		}
+		//duyet mang doi tuong
+		for(var k in car){
+			console.log(car[k]);
+		}
+
+		for(var value of car){
+			console.log(value);
+		}
+		//duyet doi tuong
+		for(var k in xe){
+			console.log(xe[k]);
+		}
+
+		for(var k of Object.keys(xe)){
+			console.log(xe[k]);
+		}
+
+		for(var val of Object.values(xe)){
+			console.log(val);
+		}
+
+		//forEach()
+		array.forEach(function (val, index, array) {
+			console.log(val+' :'+index+' :'+array+'\n');
+		})
+		//FOR IN TRA VE INDEX(KEY)
+		//FOR OF TRA VE GIA TRI(VALUE)
+	</script>
+</body>
+</html>

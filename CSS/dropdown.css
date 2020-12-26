@@ -1,0 +1,37 @@
+ul{
+	padding: 0;
+	margin: 0;
+	background: #333;
+	overflow: hidden;
+	list-style-type: none;
+	font-size: 20px;
+}
+
+li{
+	float:left;
+}
+
+li a, .button{
+	display: inline-block;
+	padding: 10px 20px;
+	color: yellow;
+	text-decoration: none;
+	text-align: center;
+}
+
+li a:hover, .dropdown:hover .button{
+	background-color: blue;
+}
+
+.drop_content{
+	display: none;
+	position: absolute;
+}
+
+.drop_content a{
+	display: block;
+}
+.dropdown:hover .drop_content{
+	display: block;
+	background-color: orange;
+}

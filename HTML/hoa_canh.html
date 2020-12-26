@@ -1,0 +1,190 @@
+<XHTML!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Hoa Cành</title>
+	<link rel="stylesheet" href="">
+	<style>
+		html{
+			font-family: sans-serif;
+		}
+		.left_cols{
+			width: 30%;
+			vertical-align: middle;
+			text-align: right;
+		}
+
+		.right_cols{
+			width: 70%;
+			vertical-align: middle;
+			text-align: left;
+		}
+
+		.right_cols input, select, textarea, button{
+			border: 1px solid #B5E0E2;
+		}
+
+		#chu_thich{
+			margin-left: 215px;
+			color: red;
+			font-size: 11px;
+		}
+
+		#main{
+			border-left: 2px dashed #1DF363;
+			padding:10px 10px 10px 10px;
+			font-size: 17.4px;
+		}
+		#mau_hoa{
+			max-width: 50px;
+		}
+		
+		#so_luong{
+			max-width: 50px;
+		}
+		button{
+			height: 22px;
+			min-width: 60px;
+			border-radius: 5px;
+		}
+		button:hover{
+			background-color: #FFFFFF;
+		}
+		span{
+			position: relative;
+			font-size: 22px;
+			top: 8px;
+		}
+		input[type=text]{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<table  cellspacing="0px" cellpadding="0px" width="80%" height="650px" align="center">
+		<tr>
+			<td>
+				<table height="100%" cellspacing="0px" cellpadding="0px">
+					<tr>
+						<td></td>
+						<td ><img src="../image/logo00.gif" alt=""></td>
+					</tr>
+
+					<tr>
+						<td>
+							<img src="../image/cong.gif" alt="" width="100%">
+						</td>
+						<td>
+							<img src="../image/hopthu_logo_2.gif" alt="">
+						</td>
+					</tr>
+					<tr height="20px">	
+						<td>
+							<img src="../image/cong01.gif" alt="">
+						</td>
+					</tr>	
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table  cellspacing="0px" cellpadding="0px" width="100%" align="center">
+					<tr height="191px">
+						<td width="190px" valign="top">
+							<img src="../image/trangchu.gif" alt=""><img src="../image/tintuc.gif" alt=""><img src="../image/Hopthu.gif" alt=""><img src="../image/gocthugian.gif" alt=""><img src="../image/Hoacaycanh.gif" alt=""><img src="../image/hopthu_rose.gif" alt="">
+						</td>
+						<td valign="top" id="main">
+							<h1 align="center">ĐĂNG KÝ MUA HOA</h1>
+							<p>Quý độc giả hãy điền đầy đủ các thông tin theo yêu cầu để nhận được sản phẩm Hoa, Cây cảnh ưng ý nhất</p>
+							<form action="hoa_canh_submit" method="get" accept-charset="utf-8">
+								<table cellspacing="0px" cellpadding="5px" width="100%" align="center">
+									<tr>
+										<td class="left_cols">Họ Tên:</td>
+										<td class="right_cols">
+											<input type="text" name="ho_ten" id="ho_ten" placeholder="Nhập tên của bạn" size="25"/> <span> *</span>
+										</td>
+									</tr>
+									<tr>
+										<td class="left_cols">Địa chỉ:</td>
+										<td  class="right_cols">
+											<input type="text" name="dia_chi" id="dia_chi" placeholder="Nhập địa chỉ của bạn" size="45" /> <span> *</span>
+										</td>
+									</tr>
+									<tr>
+										<td class="left_cols">Số điện thoại:</td>
+										<td  class="right_cols">
+											<input type="text" name="so_dien_thoai" id="so_dien_thoai" placeholder="Nhập số điện thoại của bạn"/><span> *</span>
+										</td>
+									</tr>
+									<tr>
+										<td class="left_cols">Email:</td>
+										<td class="right_cols">
+											<input type="emailt" name="email" id="email" placeholder="Nhập email của bạn"/>
+											<span> *</span>
+										</td>
+									</tr>
+									<tr>
+										<td class="left_cols">Loại hoa:</td>
+										<td class="right_cols">
+											<select name="loai_hoa" id="loai_hoa">
+												<option value="hoa thược dược">Hoa Thược Dược</option>
+												<option value="hoa hồng">Hoa Hồng</option>
+												<option value="hoa hướng dương">Hoa Hướng Dương</option>
+											</select>
+											Màu:
+											<select name="mau_hoa" id="mau_hoa">
+												<option value="đỏ">Đỏ</option>
+												<option value="vàng">Vàng</option>
+												<option value="xanh dương">Xanh dương</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td class="left_cols">Số lượng:</td>
+										<td class="right_cols">
+											<input type="number" name="so_luong" id="so_luong"><span> *</span> 
+										</td>
+									</tr>
+									<tr>
+										<td class="left_cols">Đơn vị tính:</td>
+										<td class="right_cols">
+											<input type="radio" name="don_vi" id="nhanh" value="nhánh"> Nhánh
+											<input type="radio" name="don_vi" id="bo" value="bó"> Bó
+											<input type="radio" name="don_vi" id="chau" value="chậu"> Chậu
+										</td>
+									</tr>
+									<tr>
+										<td class="left_cols">Thanh toán:</td>
+										<td class="right_cols">
+											<input type="radio" name="thanh_toan" id="tien_mat" value="nhánh"> Tiền mặt
+											<input type="radio" name="thanh_toan" id="chuyen_khoan" value="bó"> Chuyển khoản
+											<input type="radio" name="thanh_toan" id="sec" value="chậu"> Sec
+										</td>
+									</tr>
+									<tr>
+										<td class="left_cols">Yêu cầu:</td>
+										<td class="right_cols">
+											<textarea name="yeu_cau" cols="50" rows="8"></textarea>
+										</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>
+											<button type="submit" name="send">Đăng ký</button> 
+											<button type="reset" name="reset">Xóa thông tin</button>
+											<p id="chu_thich">(*)Những mục phải điền thông tin</p>
+										</td>
+									</tr>
+								</table>	
+							</form>
+						</td>
+						<td width="240px" valign="top">
+							<img src="../image/hoa.jpg" alt="">
+						</td>
+					</tr>	
+				</table>
+			</td>	
+		</tr>
+	</table>
+</body>
+</html>

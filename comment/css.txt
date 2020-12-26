@@ -1,0 +1,1 @@
+phần tử con nằm trong phần tử cha thì nó kế thừa các thuộc tính của phần tử cha;

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>nháp</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>	
+	<h1 id="ok">ok</h1><br>
+	<form name="hi">
+	<input type="text" name="hello" value="0" placeholder="nhập giá trị vào"><br>
+	<h1>good</h1>
+	</form>
+	<script language="javascript">
+		function get() {
+			var x = document.hi.hello.value;
+			document.write("hello: "+ x);
+		}
+		function get2() {
+			var x = document.getElementById("ok").innerHTML;
+			document.write("hello" + x);
+		}
+	</script>
+	<button onclick="get();">get</button><br>
+	<button onclick="get2();">get2</button>
+	<script language="javascript">
+		var x = document.getElementsByTagName("h1");
+		document.write(x[0].innerHTML);
+		alert(x.length);
+	</script>
+</body>
+</html>

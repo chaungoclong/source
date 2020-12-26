@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="../CSS/cacl_simle.css">
+</head>
+<body onload="calc(); clock();">
+	<div class="calcs" onload="calc()">
+		<div class="row">
+			<input type="text" id="result" value="">
+		</div>
+
+		<div class="row">
+			<input type="button" id="7" value="7">
+			<input type="button" id="8" value="8">
+			<input type="button" id="9" value="9">
+			<input type="button" id="/" value="/">
+		</div>
+		
+		<div class="row">
+			<input type="button" id="4" value="4">
+			<input type="button" id="5" value="5">
+			<input type="button" id="6" value="6">
+			<input type="button" id="x" value="x">
+		</div>
+
+		<div class="row">
+			<input type="button" id="1" value="1">
+			<input type="button" id="2" value="2">
+			<input type="button" id="3" value="3">
+			<input type="button" id="-" value="-">
+		</div>
+
+		<div class="row">
+			<input type="button" id="0" value="0">
+			<input type="button" id="." value=".">
+			<input type="button" id="rs" value="=">
+			<input type="button" id="+" value="+">
+		</div>
+
+		<div class="row">
+			<input type="button" id="del" value="DEL">
+			<input type="button" id="del_all" value="AC">
+		</div>
+	</div>
+
+	<div class="clock-date">
+		<div class="date">
+			<marquee behavior="" direction="">
+				<h1 id="d"></h1>
+			</marquee>
+		</div>
+		<div class="clock">
+			<input type="text" id="h">:
+			<input type="text" id="m">:
+			<input type="text" id="s">:
+			<input type="text" id="ss">
+		</div>
+	</div>
+
+	<div class="music">
+		<button>
+			<a href="#">hello</a>
+		</button>
+	</div>
+
+	<script src="../JS/cacl_simple.js"></script>
+</body>
+</html>

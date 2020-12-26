@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<canvas id="myCanvas" width="200" height="300" style="border:2px solid black;"></canvas>
+	<script>
+		var obj = document.getElementById('myCanvas');//lấy đối tượng vẽ
+		var ctx = obj.getContext("2d");//chọn đối tượng vẽ 2D
+		ctx.beginPath();//Khai báo vẽ đường thẳng mới
+		ctx.moveTo(0,0);//điểm bắt đầu
+		ctx.lineTo(20, 200);//điểm kết thúc
+		ctx.lineWidth = 20;//độ rộng đường thắng
+		ctx.lineCap="round";//bo tròn đầu đoạn thẳng
+		ctx.strokeStyle = "red";//tô màu cho đường thẳng
+		ctx.stroke();//phướng thức vẽ
+		ctx.fillStyle = 'green';
+		ctx.fillRect(10, 20, 100, 200);
+		ctx.fillStyle = 'yellow';
+		ctx.fillRect(10, 20, 100, 100);
+	</script>
+</body>
+</html>

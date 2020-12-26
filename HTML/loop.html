@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<button id="ok">giai thua</button>
+	<button id="okk">tong 1 - n</button>
+	<button id = 'okkk'>tich 1 - n chia het cho 3</button>
+	<h1 id='kq'></h1>
+	<div>
+		<input type="text" id="gt">
+	</div>
+	<script>
+		var inp = document.querySelector('input');
+		function giaiThua(n){
+			/*if(n ==1 || n == 0) return n;
+		    return n * giaiThua(n - 1);*/
+		    var gt = 1;
+		    if(n == 0 || n == 1){
+		    	gt = 1;
+		    }
+		    else{
+		    	for(var i = 2; i <= n; ++i){
+		    		gt*=i;
+		    	}
+		    }
+		 	return gt;  
+		}
+		function tong1n(n){
+			var sum=0;
+			for(var i = 0; i <= n ; ++i){
+				sum = (i % 2 == 0) ? sum + i : sum;
+			}
+			return sum;
+		}
+		function tichabc(n){
+			var tich=1;
+			for(var i = 1; i <= n; ++i){
+				tich = (i % 3 == 0) ? tich*i : tich;
+				console.log(tich);
+			}
+			return tich;
+		}
+		function all(){
+			document.querySelector('#ok').addEventListener('click', function(){
+				this.style.background = "red";
+				inp.addEventListener('keyup', function(){
+					var n =Number(this.value);
+					console.log(n);
+					document.querySelector('#kq').innerHTML = giaiThua(n);
+				});
+			});
+			document.querySelector('#okk').addEventListener('click', function(){
+				this.style.background = "green";
+				inp.addEventListener('keyup', function(){
+					var n =Number(this.value);
+					console.log(n);
+					document.querySelector('#kq').innerHTML =tong1n(n);
+				});
+			});
+			document.querySelector('#okkk').addEventListener('click', function(){
+				this.style.background = "yellow";
+				inp.addEventListener('keyup', function(){
+					var n =Number(this.value);
+					console.log(n);
+					document.querySelector('#kq').innerHTML = tichabc(n);
+					console.log(tichabc(3));
+				});
+			});
+		}
+		window.onload = all();
+	</script>
+</body>
+</html>

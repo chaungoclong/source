@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>demo canvas</title>
+<link rel="stylesheet" href="../CSS/bird.css">
+</head>
+<body>
+    <div id="game">
+        <div id="start">
+            <img src="../image/ongtren.png" alt="" id="start-top">
+            <img src="../image/ongduoi.png" alt="" id="start-bottom">
+            <img src="../image/title.png" alt="" id="start-title">
+            <img src="../image/bird.png" alt="" id="start-bird">
+            <button id="start-button"><img src="../image/red-start-png-5.png" alt=""></button>
+        </div>
+        <div id="main">
+             <canvas id ="cvs" width="360" height="500" style="background: green; margin:0 auto;"></canvas>
+             <canvas id ="btn" width="360" height="50" style="background: green; margin:0 auto;"></canvas>
+             <h1 id      ="score"></h1> 
+        </div>
+
+        <div id="end">
+              <img src="../image/gameover3.png" alt="" id="end-title">
+              <button id="end-restart">
+                  <img src="../image/restart.png" alt="">
+              </button>
+              <img src="../image/bcbtn.jpg" alt="" id="end-bottom">
+              <h1 id="end-score"></h1>
+        </div>
+
+    </div>
+        
+    <script src="../JS/bird.js"></script>
+</body>
+</html>                    

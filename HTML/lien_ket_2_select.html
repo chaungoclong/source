@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<button><a href="https://www.w3schools.com/tags/att_global_data.asp" target="_blank">link tham khảo</a></button>
+	<select id="lopHoc" onchange="changeOption(this.value)">
+		<option value="12A">12A</option>
+		<option value="12B">12B</option>
+	</select>
+	<select id="gioHoc">
+		<option data-hour="12A"value="10h-11h">10h-11h</option>
+		<option data-hour="12A"value="11h-12h">11h-12h</option>
+		<option data-hour="12B"value="12h-13h">12h-13h</option>
+		<option data-hour="12B"value="13h-14h">13h-14h</option>
+	</select>
+	<script>
+		//data-hour là thuộc tính tự định nghĩa, có thể thay 'data-hour' bằng class
+		//link tham khảo: bên trên
+		var select_1 = document.querySelector('#lopHoc');//select1
+		var select_2 = document.querySelector('#gioHoc');//select2
+		var select_2_opt = select_2.querySelectorAll('option');//các option trong select 2
+
+		function changeOption(value){
+			//nếu giá trị trong thẻ select 1 thay đổi thì đặt nội dung bên trong thẻ select 2 bằng rỗng
+			//kiểm tra từng lựa chọn trong các lựa chọn của thẻ select 2
+			//nếu thuộc tính tự định nghĩa 'data-hour' của thẻ đó bằng giá trị bên trong thẻ select 1
+			//thì thêm option đó vào thẻ select 2 bằng hàm "element.appendChild(node)"(nối 1 node con vào node cha)
+			select_2.innerHTML="";
+			for(var i = 0; i < select_2_opt.length; ++i){
+				if(select_2_opt[i].getAttribute('data-hour') === value){
+					select_2.appendChild(select_2_opt[i]);
+				}
+			}
+		}
+		//phải chạy hàm này	1 lần trước vì lúc mới chạy chương trình thì thẻ select đã có giá trị
+		//nếu không chạy hàm này trước thì giá trị của select 2 lúc mới vào chương trình sẽ full các option
+		changeOption(select_1.value);
+	</script>
+	<!-- 
+		<select id="lopHoc" onchange="changeOption(this.value)">
+		<option value="12A">12A</option>
+		<option value="12B">12B</option>
+	</select>
+	<select id="gioHoc">
+		<option class="12A"value="10h-11h">10h-11h</option>
+		<option class="12A"value="11h-12h">11h-12h</option>
+		<option class="12B"value="12h-13h">12h-13h</option>
+		<option class="12B"value="13h-14h">13h-14h</option>
+	</select>
+	<script>
+		var select_1 = document.querySelector('#lopHoc');//select1
+		var select_2 = document.querySelector('#gioHoc');//select2
+		var select_2_opt = select_2.querySelectorAll('option');//các option trong select 2
+
+		function changeOption(value){
+			//nếu giá trị trong thẻ select 1 thay đổi thì đặt nội dung bên trong thẻ select 2 bằng rỗng
+			//kiểm tra từng lựa chọn trong các lựa chọn của thẻ select 2
+			//nếu giá trị class(tên class) của thẻ đó bằng giá trị bên trong thẻ select 1
+			//thì thêm option đó vào thẻ select 2 bằng hàm "element.appendChild(node)"(nối 1 node con vào node cha)
+			select_2.innerHTML="";
+			for(var i = 0; i < select_2_opt.length; ++i){
+				if(select_2_opt[i].getAttribute('class') === value){
+					select_2.appendChild(select_2_opt[i]);
+				}
+			}
+		}
+		//phải chạy hàm này	1 lần trước vì lúc mới chạy chương trình thì thẻ select đã có giá trị
+		//nếu không chạy hàm này trước thì giá trị của select 2 lúc mới vào chương trình sẽ full các option
+		changeOption(select_1.value);
+	</script>
+	-->
+</body>
+</html>

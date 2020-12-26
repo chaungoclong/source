@@ -1,0 +1,60 @@
+để lấy giá trị trong thẻ input có thể dùng DOM hoặc theo cấu trúc: document.<name thẻ form>.<name thẻ input>.value 
+
+
+mysqli_stmt_bind_result () cho mysqli biết bạn muốn điền biến nào khi tìm nạp một hàng, nhưng nó chưa tìm nạp () bất cứ thứ gì. Điều này là cần thiết để gọi một lần, trước khi bạn gọi tìm nạp.
+
+mysqli_stmt_store_result () đặt một hành vi tùy chọn để máy khách tải xuống tất cả các hàng khi bạn tìm nạp () hàng đầu tiên và lưu vào bộ nhớ cache toàn bộ tập hợp kết quả trong máy khách (tức là PHP). Các lệnh gọi fetch () tiếp theo sẽ chỉ lặp lại trên tập kết quả được lưu trong bộ nhớ cache của ứng dụng khách này. Nhưng bản thân việc đặt tùy chọn này cũng không gây ra tìm nạp (). Chức năng này là hoàn toàn tùy chọn.
+
+mysqli_stmt_fetch () trả về hàng tiếp theo trong tập kết quả và khiến nó được lưu trữ trong một biến bị ràng buộc. Bạn phải gọi hàm này trong một vòng lặp, cho mỗi hàng của tập kết quả. Đó là, cho đến khi tìm nạp trả về false.
+
+bind_param(), bind_result(), get_result(), store_result();
+
+//SỬ DỤNG PREPARE:
+b1: tạo câu truy vấn sql; $sql="..."
+b2: chuẩn bị câu truy vấn bằng phương thức prepare()-> gán vào 1 biến; $var = $conn->prepare($sql);
+b3: liên kết các tham số với câu truy vấn: bind_param("chuỗi định dạng", các biến);
+$var->bind_param("...", $var1, $var2, ...);
+b4: chạy câu lệnh: $var->execute();
+#Lấy dữ liệu:
+*get_result và bind_result:
+a, bind_result($v1, $v2, $v3,...);
+b1:$var->store_result();
+b2:$var->bind_result(danh sách biến = số cột cần lấy ra);
+b3:lặp để lấy giá trị:
+		while($var->fetch()){
+			echo "danh sách biến";
+		} 
+
+a, get_result(): giống với cách sử dụng thông thường;
+b1:tạo 1 biến để lưu kết quả sau khi thực hiện câu truy vấn:
+$kq = $var->get_result();
+b2:lặp để lấy giá trị:
+		while($row = $kq->fetch_assoc()){
+			echo $row['tên cột'];
+		} 
+
+#So sánh bind_result và get_result():
+bind_result ()
+
+Ưu điểm:
+
+    Đơn giản hơn
+    Không cần phải gây rối với $row['name']
+    Sử dụng fetch()
+
+Nhược điểm:
+
+    Không hoạt động với truy vấn SQL sử dụng *
+
+get_result ()
+
+Ưu điểm:
+
+    Hoạt động với tất cả các câu lệnh SQL
+    Sử dụng fetch_assoc()
+
+Nhược điểm:
+
+    Phải loay hoay với các biến mảng $row[]
+    Không gọn gàng
+    yêu cầu trình điều khiển riêng của MySQL ( mysqlnd )

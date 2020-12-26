@@ -1,0 +1,9 @@
+<?php 
+	include("top.php");
+	include("header.php");
+	include("navigation.php");
+	include("left.php");
+	include("right.php");
+	include("pagination.php");
+	include("footer.php");
+ ?>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>SNAKE</title>
+	<link rel="shortcut icon" type="image/png" href="https://image.winudf.com/v2/image/bmV0LmJleWNhbi50ZXN0ZnVsbHNjcmVlbl9pY29uXzE1MzM1NDczNjVfMDk0/icon.png?w=170&fakeurl=1">
+	<style>
+		.all{
+			position: relative;
+			width: 720px;
+			height: 420px;
+			background: purple;
+			margin: 0 auto;
+		}
+		.left{
+			position: relative;
+			width: 620px;
+			height: 100%;
+			float: left;
+			background: blue;
+		}
+		.right{
+			position: relative;
+			width: 100px;
+			height: 100%;
+			float: left;
+			background: url("https://www.freevector.com/uploads/vector/preview/30374/Colorful-Plait-Background.jpg");
+		}
+		#game_box{
+			position: absolute;
+			background: url("https://i2.wp.com/dongphuckn.com/wp-content/uploads/2019/08/background-dep-vector-628x400.jpg?resize=816%2C9999&ssl=1");
+			border:10px solid #D58912;
+		}
+		#score{
+			position: relative;
+			background: white;
+			border:5px solid#fff;
+		}
+		body{
+			background-color: black;
+		}
+		#score_box{
+			top:20px;
+			right:20px;
+			position: absolute;
+			color:red;
+			font-weight: bolder;
+		}
+		#start{
+			width: 100px;
+			height: 30px;
+			background: #F6E315;
+			font-family: monospace;
+			border:2px solid #12F44C;
+		}
+		#start:hover{
+			background: green;
+			color:white;
+			font-family: sans-serif;
+		}
+		#exit{
+			width: 100px;
+			height: 30px;
+			background: pink;
+			font-family: monospace;
+			border:2px solid #12F44C;
+		}
+		#exit:hover{
+			background: red;
+			color:white;
+			font-family: sans-serif;
+		}
+		#intro{
+			position: absolute;
+			top:100px;
+			bottom: 100px;
+			left:230px;
+			z-index: 10;
+			color:red;
+			display: none;
+		}
+		#xy{
+			position: absolute;
+			top:20px;
+			left: 20px;
+			color: red;
+			z-index: 1;
+		}
+		#drop_box_level{
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+		}
+		#drop_content{
+			display: none;
+		}
+		 #level:active #drop_content{
+		 	display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div id="intro">
+			<h1>GAME SNAKE</h1>
+		</div>
+		<div class="left">
+			<span id="xy"></span>
+			<canvas id="game_box" width="600" height="400"></canvas>
+			<span id="score_box">SCORE:0</span>
+		</div>
+		<div class="right">
+			<button id="start" onclick="begin()">START</button>
+			<button id="exit" onclick="back()">EXIT</button>
+			<div id="drop_box_level">
+				<button id="level" onclick="changeSpeed()">LEVEL</button>
+				<div id ="drop_content">
+					<button id="kho">HARD</button>
+					<button id="trung binh">MEDIUM</button>
+					<button id="de">EASY</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		window.onload = intro();
+		//====================================================================//
+		var objGame = document.getElementById('game_box');//Khung game
+		var ctx = objGame.getContext("2d");//Chế độ vẽ 2d
+		var diem = 0;
+		var dot_ran = 20;//độ dài của 1 đốt rắn
+		var frame = 0;//biến này được gán bằng hàm lặp khung hình(0 =>chưa chạy || exit)
+		var FPS = 15
+		
+		//CON RẮN==============================================================//
+		var Snake={
+			x: 200,
+			y: 200,
+			direct: "RIGHT",
+			do_dai: [],
+			do_dai_max: 4,
+			dieuHuong: function(){
+				if(this.direct == "RIGHT"){
+					this.x += dot_ran;
+				}
+				if(this.direct =="LEFT"){
+					this.x -= dot_ran;
+				}		
+				if(this.direct == "UP"){
+					this.y -= dot_ran;
+				}
+				if(this.direct =="DOWN"){
+					this.y += dot_ran;
+				}
+			},
+			xacDinhHuong: function(){
+				document.addEventListener("keydown", function(event){
+					if(event.which === 37 && Snake.direct !=="RIGHT"){
+						Snake.direct = "LEFT";
+						//không được dùng THIS để gọi thuộc tính direct tại đây vì THIS ở đây chính là đối tượng document vì document gọi đến hàm này khi xảy ra sự kiện nhấn phím xuống
+					}
+					if(event.which === 38 && Snake.direct !=="DOWN"){
+						Snake.direct = "UP";
+					}
+					if(event.which === 39 && Snake.direct !=="LEFT"){
+						Snake.direct = "RIGHT";
+					}
+					if(event.which === 40 && Snake.direct !=="UP"){
+						Snake.direct = "DOWN";
+					}
+				});
+			}, 
+			chamBien: function(){
+				if(this.x < 0) { 
+					this.x = objGame.width - dot_ran; 
+				}
+				if(this.x >= objGame.width) { 
+					this.x = 0; 
+				}
+				if(this.y < 0) { 
+					this.y = objGame.height - dot_ran; 
+				}
+				if(this.y >= objGame.height) { 
+					this.y = 0; 
+				}
+			},
+			veThan: function(){
+				ctx.clearRect(0, 0, objGame.width, objGame.height);
+				for(let i in this.do_dai){
+					ctx.fillStyle = (i == 0) ? "red" : "#321EF3";
+					ctx.fillRect(this.do_dai[i].x, this.do_dai[i].y, dot_ran-1, dot_ran-1);
+				}	
+			},
+			themDot: function(){
+				this.do_dai.unshift({x:this.x, y:this.y});
+				if(this.do_dai.length > this.do_dai_max){
+					this.do_dai.pop();
+				}
+			},
+			anThucAn: function(){
+				if(this.x == Food.x && this.y == Food.y){
+					this.do_dai_max++;
+					diem+=100;
+					Food.random();
+					document.getElementById('score_box').innerHTML = "SCORE:"+diem;
+				}
+			},
+			canThan: function(){
+				for(let i = 1; i < this.do_dai.length; ++i){
+					if(this.do_dai[i].x == this.x && this.do_dai[i].y == this.y){
+						clearInterval(frame);
+						reset();
+						ctx.font="50px Comic Sans MS";
+						ctx.fillStyle = "blue";
+						ctx.fillText("GAME OVER", 200, objGame.height/2);
+					}
+				}
+			}
+		};
+
+		//THỨC ĂN=======================================================//
+		var Food={
+			color: "green",
+			x: 0,
+			y: 0,
+			random: function(){
+				this.x = (Math.floor(Math.random() * 29) + 1) * dot_ran;
+				this.y = (Math.floor(Math.random() * 19) + 1) * dot_ran;
+				this.color = "#"+(Math.floor(Math.random() * 999) + 1);
+				if(this.x == Snake.x && this.y == Snake.y){
+					this.random();
+				}
+			},
+			hienThi: function(){
+				ctx.fillStyle= this.color;
+				ctx.fillRect(this.x, this.y, dot_ran-1, dot_ran-1);
+			}
+		};
+		var startButton = document.querySelector("#start");
+		var exitButton = document.querySelector("#exit");
+
+		//PROCESS====================================================================//
+		Food.random();
+		//một khung hình
+		function oneFrame(){
+			Snake.dieuHuong();
+			Snake.chamBien();
+			Snake.themDot();
+			Snake.veThan();
+			Snake.canThan();
+			Food.hienThi();
+			XY();
+			Snake.anThucAn();
+			Snake.xacDinhHuong();
+		}
+		//bắt đầuvlặp nhiều khung hình
+		function begin(){
+			if(!frame) {frame = setInterval(oneFrame, 1000/FPS);}
+			console.log("fps:"+frame);
+			intro();
+		}
+		//thoát và xóa hình trên canvas
+		function back(){
+			//ngừng lặp
+			clearInterval(frame);
+			//khởi tạo lại
+			reset();
+			//xóa hình ảnh trên canvas
+			ctx.clearRect(0, 0, objGame.width, objGame.height);
+			intro();
+		}
+
+		function intro(){
+			if(!frame){
+				document.querySelector("#intro").style.display="block";
+			}
+			else{
+				document.querySelector("#intro").style.display="none";
+			}
+		}
+
+		function XY(){
+			document.querySelector("#xy").innerHTML = "x: "+Snake.x+" y: "+Snake.y
+		}
+		
+		function reset(){
+			Snake.x = 200;
+			Snake.y = 200;
+			Snake.direct = "RIGHT";
+			Snake.do_dai = [];
+			Snake.do_dai_max = 4;
+			frame = 0;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		.all{
+			height: 500px;
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid black;
+			margin: 0 auto;
+			background-image: linear-gradient(red, blue, orange);
+			border-radius: 40px;
+		}
+
+		.item{
+			display: flex;
+			width:700px;
+			margin-bottom: 10px;
+			width: 400px;
+		}
+		.lb{
+			min-width: 150px;
+			color: green;
+			font-size: 20px;
+			font-weight: 900;
+			background-color: #1DFABE;
+		}
+		input{
+			border-radius: 10px;
+			background-color: #E0DEDE;
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="item">
+			<label for="input" class="lb">Text</label>
+			<textarea id="input"  cols="50" rows="20" onkeyup="get()"></textarea>
+		</div>
+
+		<div class="item">
+			<label for="result" class="lb">Number Of Word:</label>
+			<input type="number" id="result">
+		</div>
+	</div>
+	<script>
+		String.prototype.countSymbol = function(symbol){
+			var listSymbol = this.split("").filter(function(val){
+					return val === symbol;
+			});
+			return listSymbol.length;
+		}
+
+		String.prototype.countWord = function(){
+			var listWord = this.split(" ").filter(function(val){
+				return val !="";
+			})
+			console.log(listWord);
+			return listWord.length;
+		}
+
+		function get(){
+			var objParagraph={word:0, dots: 0, comma:0, semColon: 0, doubleDots: 0, underscore: 0};
+			var x = document.getElementById('input');
+			console.log(x.value);
+			//xóa khoảng trắng 2 đầu
+			var y = x.value.trim();
+
+			objParagraph.word = (y.length != 0) ? y.countWord() : 0;
+			objParagraph.dots = (y.length != 0) ? y.countSymbol(".") : 0;
+			objParagraph.comma = (y.length != 0) ? y.countSymbol(",") : 0;
+			objParagraph.semColon = (y.length != 0) ? y.countSymbol(";") : 0;
+			objParagraph.doubleDots = (y.length != 0) ? y.countSymbol(':') : 0;
+			objParagraph.underscore = (y.length != 0) ? y.countSymbol("_") : 0;
+			console.log(objParagraph);
+			document.getElementById("result").value = objParagraph.word;
+		}
+	</script>
+</body>
+</html>

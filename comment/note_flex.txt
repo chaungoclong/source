@@ -1,0 +1,40 @@
+===FLEX===
+#Gồm 2 thành phần chính flex container và flex item.
+
+#container: là thành phần lớn bao quanh các phần tử bên trong, các item bên trong sẽ hiển thị dựa trên thiết lập của container này.
+
+#item: là phần tử con của container, bạn có thể thiết lập nó sẽ sử dụng bao nhiêu cột trong một container, hoặc thiết lập thứ tự hiển thị của nó.
+
+#Flex item là con trực tiếp của flex container.
+
+#Các thuộc tính chỉ được áp dụng cho phần tử con trực tiếp(cháu chắt không được áp dụng).
+
+II-CÁC THUỘC TÍNH
+
+1.display:
+#Đặt trong flex container>hiển thị dưới dạng flexbox.
+#các giá trị: flex, flex-inline.
+
+2.justify-contain
+#điều chỉnh vị trí bắt đầu và căn chỉnh các item bên trong container theo dọc theo trục main axis, chiều ngang hoặc chiều dọc tùy thuộc vào flex-direction.
+
+3.flex(cú pháp viết tắt):
+"Thành phần con" được cho một tỉ lệ cụ thể trong khoảng trống của thành phần cha. Cú pháp này tương ứng với:"flex: <số dương> 1 0"
+=>điều chỉnh tỉ lệ kích thước giữa các item.
+
+4.flex-basis: xác định kích thước cho các item(main size).
+
+5.flex-wrap: xuống dòng khi kích thước flex-container thay đổi.
+
+6.flex-direction: Thay đổi chiều sắp xếp các item trong flex container(ngang, dọc).
+#thêm -reverser để đảo thứ tự trong 1 chiều(trên, dưới, trái, phải)
+#Justify-:theo chiều trục chính(main axis).
+
+#align-: Theo chiều trục chéo(cross axis: trục vuông góc với trục chính).
+
+#-content: áp dụng ->tất cả nội dung trong .
+flex-container(khung chứa tất cả các flex item).
+
+#-self: áp dụng ->chính bản thân flex item;
+#-items: áp dụng -> tất cả item trong flex container.		
+

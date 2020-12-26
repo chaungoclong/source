@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>menu</title>
+	<link rel="stylesheet" href="">
+	<style>
+		.menu{
+			width: 30%;
+			margin: 0 auto;
+			padding: 0;
+			list-style-type: none;
+			overflow: hidden;
+		}
+
+		.item{
+			background-image: url(../image/bar_bkg_main_cat.gif);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			
+		}
+
+		.item a{
+			display: block;
+			text-decoration: none;
+			padding: 3px 10px;
+			color: white;
+			font-size: 20px;
+		}
+
+		.item:hover, .item a:hover{
+			background:url(../image/bar_bkg_select_cat.gif) no-repeat;
+			background-size: 100% 100%;
+			color:#DBB82E;
+		}
+
+		.top-bottom{
+			background-color: black;
+			padding: 6px 10px;
+			display: block;
+			text-align: center;
+			color: #DBB82E;
+			background: url(../image/bar_bkg_select_cat.gif) no-repeat;
+			background-size: 100% 100%;
+			font-size: 20px;
+			font-weight: bolder;
+		}
+		.top-bottom a{
+			display: block;
+			text-align: center;
+			color: #DBB82E;
+			text-decoration: none;
+		}
+
+		.content{
+			display: none;
+		}
+
+		.item:hover .content{
+			display: block;
+			left:0;
+		}
+
+		.m2 ul{
+			width: 20%;
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+			list-style-type: none;
+			background-color:black;
+		}
+		.m2 ul >li{
+			display: block;
+			position: relative;
+			border-bottom: 2px solid white;
+		}
+
+		.m2 ul >li >a{
+			display: block;
+			text-align: left;
+			color: #DBB82E;
+			text-decoration: none;
+			padding:5px 10px;
+		}
+
+		.nd{
+			display: none;
+			position: absolute;
+		}
+		.nd a{
+			display: block;
+			text-align: center;
+			color: #DBB82E;
+			text-decoration: none;
+			padding:5px 10px;
+		}
+		.drop:hover .nd{
+			display: block;
+			right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<ul class="menu">
+			<li class="top-bottom">
+				<a href="#">THỂ LOẠI PHIM</a>
+			</li>
+			<li class="item">
+				<a href="#">Hành động</a>
+			</li>
+			<li class="item">
+				<a href="#">Kinh dị</a>
+				<div class="content">
+					<a href="#">Việt Nam</a>
+					<a href="#">Mỹ</a>
+					<a href="#">Nga</a>
+				</div>
+			</li>
+			<li class="item">
+				<a href="#">Hài hước</a>
+			</li>
+			<li class="item">
+				<a href="#">Tình cảm</a>
+			</li>
+			<li class="item">
+				<a href="#">Chiến tranh</a>
+			</li>
+			<li class="item">
+				<a href="#">Tâm lí</a>
+			</li>
+			<li class="top-bottom">Tổng cộng:1 000 000 000</li>
+		</ul>
+	</div>
+	<div class="m2">
+		<ul>
+			<li>
+				<a href="#">THỂ LOẠI PHIM</a>
+			</li>
+			<li>
+				<a href="#">Hành động</a>
+			</li>
+			<li class="drop">
+				<a href="#">Kinh dị</a>
+				<div class="nd">
+					<a href="#">Việt Nam</a>
+					<a href="#">Mỹ</a>
+					<a href="#">Nga</a>
+				</div>
+			</li>
+			<li class=>
+				<a href="#">Hài hước</a>
+			</li>
+			<li class=>
+				<a href="#">Tình cảm</a>
+			</li>
+			<li class=>
+				<a href="#">Chiến tranh</a>
+			</li>
+			<li class=>
+				<a href="#">Tâm lí</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

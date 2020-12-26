@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OBJECT</title>
+</head>
+<body>
+	<script language="javascript">
+		/*var person = {
+			name: "ok",
+			age: 10,
+			setInfo: function(name, age) {
+				this.name = name;
+				this.age = age;
+			},
+			showInfo: function() {
+				document.write(this.age+" "+this.name);
+			}
+		};
+		person.setInfo("hello", 10);
+		person.showInfo();*/
+		class hello{
+			contructor(name, age){
+				this.name = name;
+				this.age = age;
+			}
+			showInfo(){
+				console.log("name: "+this.name+"<br>age: "+this.age);
+				document.write("name: "+this.name+"<br>age: "+this.age);
+			}
+		}
+
+		var p = new hello();
+		p.contructor("hello", 10);
+		p.showInfo();
+
+		var q = new hello();
+		q.contructor("hi", 20);
+		q.showInfo();
+
+		var arr = [];
+		arr.push(p, q);
+		console.log(arr);
+	</script>
+</body>
+</html>

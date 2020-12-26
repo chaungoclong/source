@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ARRAY JAVASCRIPT</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script language="javascript">
+		var cars = ["Saab", "Volvo", "BMW"];
+
+		var car = [
+			{type:"Fiat", model:"500", color:"white"},
+			{type:"BMW", model:"1000", color:"red"},
+			{type:"VinFast", model:"1500", color:"green"}
+		];
+		console.log(car[1].model);
+		//map(function(value, index, aray)): duyệt mảng -> thực hiện function() trong map -> lấy gt function() trả về gán cho mảng mới
+		var carsMap = cars.map(function (val) {
+			return val = val.concat("hello");
+		})
+		console.log('new array cars2: '+carsMap);
+
+		var carMap = car.map(function (val) {
+			return {
+				type: val.type+" copy",
+				model: val.model+" copy",
+				color: val.color+" copy"
+			}
+		});
+
+		console.log(carMap);
+
+
+		//filter(function(value, index, aray)): tạo một mảng mới từ các phần tử của mảng cũ thỏa mãn điều kiện nào đó
+		
+		var carFilter = car.filter(function (val){
+			return parseInt(val.model) > 500;
+		});
+		console.log(carFilter);
+
+		var carsFilter = cars.filter(function(val){
+			return val.charCodeAt(0) > 1000;
+		});
+
+		console.log(carsFilter);
+
+		//reduce(function(total, value, index, aray), InitialValue): thực hiện function cho mỗi phần tử của mảng -> lấy gt function trả về lần trước truyền vào cho total lần sau. InitialValue: giá trị khởi tạo cho total
+		var carReduce = car.reduce(function(total, val){
+			return total + parseInt(val.model);
+		}, 1000);
+		console.log(carReduce);
+
+		//find(function(value, index, aray)): trả về phần tử đầu tiên thỏa mãn điều kiện trong mảng
+		carFind = car.find(function(val){
+			return val.type == 'VinFast' && val.model == 1500 && val.color == "green";
+		});
+		console.log(carFind);
+
+		//every(function(value, index, aray)) trả về true nếu tất cả các phần tử của mảng đều thỏa mãn điều kiện
+		var number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+		numberEvery = number.every(function(val){
+			return val > 0;
+		});
+		console.log("numberEvery:"+numberEvery);
+
+		//some(function(value, index, aray)): trả về true nếu 1 trong các phần tử của mảng thỏa mãn điều kiện
+		var carSome = car.some(function(val, index){
+			console.log(index);
+			return val.type == 'VinFast';
+		});
+		console.log(carSome);
+		
+		var list = ["ddasda", "dfdsniocnds", "cdsjfj9d", 1, 2, 3];
+		console.log(list);
+		var newList = list.filter(function(val){
+			return !isNaN(val);
+		})
+		console.log(newList);
+	</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+		.tong{
+			margin: 0 auto;
+			width: 80%;
+			height: 950px;
+			background-color: red;
+		}
+		.tren{
+			width: 100%;
+			height: 200px;
+			background-color: yellow;
+		}
+
+		.tren >.hang1{
+			width: 100%;
+			height: 70px;
+			
+		}
+
+		.tren >.hang1 >.item{
+			float: left;	
+			width: 25%;
+			height: 100%;
+			background-color: #2A6FA5;
+		}
+
+		.tren >.hang2{
+			width: 100%;
+			height: 100px;
+			background-color: #25F410;
+		}
+
+		.tren >.hang2 >.item{
+			float:left;
+			width: 50%;
+			height: 100%;
+			background-color: #A8F940;	
+		}
+
+		.tren >.hang3{
+			width: 100%;
+			height: 30px;
+			background-color: #F32D13;
+		}
+		.tren >.hang3 >.item1{
+			float: left;
+			width: 20%;
+			height: 100%;
+		}
+		.tren >.hang3 >.item2{
+			float: right;
+			width: 80%;
+			height: 100%;
+		}
+
+		.duoi{
+			width: 100%;
+			height: 750px;
+			background-color: blue;
+		}
+
+		.duoi >.trai{
+			float: left;
+			width: 20%;
+			height: 100%;
+			background-color: orange;
+		}
+		.duoi >.trai >.top{
+			width: 100%;
+			height: 200px;
+			background: #970301;
+		}
+		.duoi >.trai >.bottom{
+			padding-top: 0.5px;
+			text-align: center;
+			width: 100%;
+			height: 550px;
+			background: #C4C1C6;
+		}
+
+		.duoi >.trai >.bottom img{
+			width:90%;
+			margin:5px;
+		}
+		.duoi >.phai{
+			position: relative;
+			float:left;
+			width:79.4%;
+			height:100%;
+			background-color: white;
+			border-right: 6.4px dashed red;
+		}
+		.duoi >.phai >.hinh_nen{
+			height: 95%;
+			width: 99%;
+			background-image: url('../image/nen1.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			position: absolute;
+			bottom:0;
+			right:0;
+		}
+		.duoi >.phai >.hinh_nen >.form{
+			margin:0 auto;
+			width: 80%;
+			height:95%;
+			background-color: #CAB7A9;
+		}
+
+		.table{
+			width: 100%;
+			height: 100%;
+
+
+
+
+
+
+
+
+
+			
+		}
+		.table td{
+			border:1px solid black;
+		}
+

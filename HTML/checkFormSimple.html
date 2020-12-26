@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>checkForm</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script language="javascript">
+		function checkName(name) {
+			for(var i = 0; i < name.length; ++i){
+				if(name.charCodeAt(i) >= 48 && name.charCodeAt(i) <= 57) return false;
+			}
+			return true;		
+		}
+		function getValue(id) {
+			if(id=="input"){
+				var x = document.getElementById(id).value;
+				if(x < 0){
+					document.getElementById(id).style.color="red";
+					document.getElementById(id).style.backgroundColor="green";
+					var notice = function(){alert("Nhập tuổi lớn hơn 0"); document.getElementById(id).value = "";};
+					setTimeout(notice, 100);
+				}
+				else{
+					document.getElementById(id).style.color="black";
+					document.getElementById(id).style.backgroundColor="white";
+				}
+			}
+			else if(id=="input2"){
+				var y = document.getElementById(id).value;
+				console.log(checkName(y));
+				var notice = function(){
+					alert("tên không hợp lệ");
+					document.getElementById(id).value = "";
+				};
+				console.log('notice'+notice);
+				if(y != "" && !checkName(y)){
+					setTimeout(notice, 100);
+				}
+				
+			}
+		}
+	</script>
+	<form action="../PHP/getInfo.php" method="post">
+		<b><i>Tên&nbsp</i></b>
+		<input type="text" name="name" id="input2" value="tên" placeholder="nhập tên của bạn" oninput="getValue(this.id);"><br>
+		<b><i>Tuổi</i></b>
+		<input type="number" name="age" id="input" value="0" placeholder="nhập tuổi của bạn" oninput="getValue(this.id);">
+		<input type="submit" name="send" id="ok">
+	</form>
+
+</body>
+</html>

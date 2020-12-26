@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ARRAY JAVASCRIPT</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<div>
+		<h1 id="1"></h1>
+	</div>
+	<script language="javascript">
+		//KHỞI TẠO MẢNG
+		var arr = [1, '2', 3, 0];
+		for(var i = 0; i < arr.length; ++i){
+			console.log(arr[i]);
+		}
+		var arr2 = arr.sort(function (a, b) {return b - a});
+		for(var i = 0; i < arr2.length; ++i){
+			console.log(arr2[i]);
+		}
+
+		for(var i = 0; i < arr.length; ++i){
+			console.log(arr[i]);
+		}
+
+		console.log(arr.constructor);
+
+		var array = [5, 4, 3, 2, 1, 0];
+		array.sort();
+		console.log(array);
+		//CÁC PHƯƠNG THỨC CỦA MẢNG
+		//1.Chuyển đổi mảng sang chuỗi: toString(), join() .Không làm thay đổi mảng
+		var vd1 = ['kim', 'tự', 'tháp', 'Ai', 'Cập'];
+		console.log(vd1.toString());
+		console.log(vd1.join(" "));
+		//2.Xóa/Thêm phần tử ở cuối mảng: pop(), push()
+		vd1.pop();
+		console.log(vd1);
+		vd1.push("Cập");
+		console.log(vd1);
+		//3.Xóa/Thêm phần tử đầu mảng: shift(), unshift()
+		array.shift();
+		console.log(array);
+		var xx = array.unshift(0);
+		console.log('xx'+xx);
+		console.log(array);
+		document.getElementById("1").innerHTML = array.shift();
+		console.log(array);
+		//4.xoa cac phan tu: delete() vi tri bi xoa = undefine
+		delete array[0];
+		console.log(array);
+		array.unshift(0);
+		array[1] = 2;
+		console.log(array);
+		//Xoa/Them phan tu bang splice(add, del, add value)
+		var arr3 = ['a', 'b', 'c', 1, 2, 3];
+		arr3.splice(3, 3, 'd', 'e', 'f');//tu vt 3 bo 3 pt va them 3 pt
+		console.log(arr3);
+		arr3.splice(1, 2);
+		console.log(arr3);
+		//Noi mang: concat(array)
+		console.log(arr3.concat([1, 2, 3]));
+		console.log(arr3.concat(array));
+		//Tao 1 mang moi tu 1 mang slice(start, end): 
+		var oldArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+		var newArr = oldArr.slice(0, 10);
+		console.log(newArr);
+		var newArr = oldArr.slice(5);
+		console.log(newArr);
+		var points = [40, 100, 1, 5, 25, 10];
+		points.sort(function (a, b) {
+			return a - b;
+		})//sort array asc
+		console.log(points);
+
+		//sort random
+		sortRandom(points);
+		console.log(points);
+		function sortRandom(array) {
+			var i, j, k;
+			for(i = array.length - 1; i > 0; --i){
+				j = Math.floor(Math.random() * i);
+				k = array[j];
+				array[j] = array[i];
+				array[i] = k;
+			}
+		}
+		//max array
+		var max = myMaxArray(points);
+		function myMaxArray(array) {
+			return Math.max.apply(null, array);
+		}
+		console.log(max);
+		//min array
+		var min = myMinArray(points);
+		console.log(min);
+		function myMinArray(array){
+			return Math.min.apply(null, array);
+		}
+
+
+	</script>
+	</script>
+</body>
+</html>

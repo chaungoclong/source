@@ -1,0 +1,9 @@
+
+
+e.target: lấy phần tử kích hoạt sự kiện
+ex: {body lắng nghe sự kiện click, trong body có thẻ p}
+ => p được click -> e.target trả về thẻ p
+ => không gian xung quanh p được click -> e.target trả về body.
+ #lấy phần tử trực tiếp kích hoạt sự kiện
+ body: lắng nghe sự kiện;
+ p: trực tiếp kích hoạt sự kiện.

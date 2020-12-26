@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+	<form name="f">
+		<input type="text" name="b" placeholder="input time" value="" oninput="get();"><br>/*dùng oninput:khi giá trị trong thẻ input thay đổi thì hàm get được gọi ngay thời điểm đó*/<br>
+		<input type="text" value="0" name="a"><br>
+		<input type="button" name="k" value="start" onclick="abc();">&nbsp
+		<input type="button" name="c" value="stop" onclick="stop();">
+		<input type="button" name="d" value="restart" onclick="restart();">
+	</form>
+	<script language="javascript" type="text/javascript">
+		var x, y;
+		function get() {
+			x = document.f.b.value;
+		}
+
+		function abc() {
+			document.f.a.value = x--;
+			y = setTimeout(abc, 100);
+			if(x == -1) clearInterval(y);
+		}
+		//dừng
+		function stop() {
+			clearTimeout(y);
+		}
+		//đặt lại
+		function restart() {
+			stop();
+			document.f.a.value=0;
+			document.f.b.value=0;
+		}
+	</script>
+	
+	
+</body>
+</html>

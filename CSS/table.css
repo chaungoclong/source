@@ -1,0 +1,15 @@
+table, th, td{
+	border: 1px solid green;
+}
+th:hover{
+	background-color: yellow;
+	cursor: pointer;
+}
+
+td:hover{
+	background-color: yellow;
+	cursor: pointer;
+}
+h1{
+	color: blue;
+}

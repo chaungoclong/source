@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	n: <input type="text" id="n">
+	<h1 id="kq"></h1>
+	<script>
+		
+		function sum(n){
+			if(n <= 1) return n;
+			else return Math.pow(n, 2) +sum(n-1);
+		}
+		document.querySelector('#n').addEventListener('keyup', function(){
+			var n = Number(this.value);
+			document.querySelector('#kq').innerHTML = sum(n);
+		});
+		
+	</script>
+</body>
+</html>

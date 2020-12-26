@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>time2</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<div onmouseover="this.style.backgroundColor='red'">
+		myDIV.
+	</div>
+	<script language="javascript">
+		var input = 0, count, flag = false;
+		//lay gia tri nguoi dung nhap vao
+		function getInput() {
+			input = document.getElementById("input").value;
+			flag = true;
+			//alert(input);
+		}
+
+		//dem nguoc
+		function run() {
+			if(!flag){
+				document.getElementById("output").value = input++;
+			}
+			else{
+				document.getElementById("output").value = input--;
+			}
+			count = setTimeout(run, 100);
+			if(input < 0) clearTimeout(count);
+		}
+
+		//dung lai
+		function stop() {
+			clearTimeout(count);
+		}
+
+		//
+		function restart(){
+			stop();
+			document.getElementById("input").value = 0;
+			document.getElementById("output").value = 0;
+		}
+
+	</script>
+	
+	<input type="text" id="input" value="0" placeholder="nhập thời gian vào" size="23" oninput="getInput();" ><br>
+	<input type="text" id="output" value="0" size="23"><br>
+	<input type="button" id="start" value="START" onclick="run();" onmouseleave="this.style.color = 'blue'"
+	onmouseover="this.style.color = 'red'">&nbsp
+	<input type="button" id="stop" value="STOP" onclick="stop();" onmouseleave="this.style.color = 'blue'"
+	onmouseover="this.style.color = 'red'">&nbsp
+	<input type="button" id="restart" value="RESTART" onclick="restart();" onmouseleave="this.style.color = 'blue'"
+	onmouseover="this.style.color = 'red'; this.style.backgroundColor='yellow'">
+
+</body>
+</html>

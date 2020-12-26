@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var hengio;
+function baogio()
+{
+	var x = 100;
+	/*
+var num=document.ok.kq.value;
+var num=eval(num)+1;8*/
+document.ok.kq.value=x++;
+//hengio=setTimeout("baogio();",1000);
+}
+</script>
+<form name="ok">
+<input type="text" name="kq" value="0" /><br />
+<input type="button" value="Bắt đầu" onclick="baogio();" />
+<input type="button" value="Dừng" onclick="clearTimeout(hengio);" />
+</form>
+</body>
+</html>
